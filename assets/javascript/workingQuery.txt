@@ -1,0 +1,5 @@
+https://en.wikipedia.org/w/api.php?action=query&titles=Turtle&prop=info&format=json
+
+https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=jsonfm&titles=Turtle
+
+https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=jsonfm&titles=Red-eared%20slider&pageids=1
