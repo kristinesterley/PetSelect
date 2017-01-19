@@ -1,0 +1,4 @@
+API Key
+e1bf9c7e6dcb9f122154bef369c419db
+API Secret
+fa79c2cc1ce9c36d21d209909f40d12a
