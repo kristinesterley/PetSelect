@@ -1,3 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Indie+Flower|Oswald|Rock+Salt|Ubuntu|Raleway');
+
+
 * {
 	box-sizing: border-box;
+	text-align: center;
+}
+
+.center {
+	margin: auto;
+	width: 50%;
+	
+}
+
+#questM {
+	font-size: 475px;
+	font-family: "Amatic SC";
+	margin: 0 auto;
+	height: 450px;
+	line-height: 0.9em;
+}
+
+.h1 {
+	margin: 0px;
+	margin-bottom: 10px;
+	font-size: 35px;
+	font-family: "Raleway";
+	font-weight: bolder;
+	word-spacing: 0.1em;
+}
+
+.container {
+	margin: 0px;
+	width: 100%;
+}
+header {
+	height: 525px;
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.btn-lg {
+	height: 100px;
+	width: 300px;
+	font-size: 65px;
+	background-color: #222;
+	color: white;
+	font-family: "Ubuntu";
+	letter-spacing: 0.2em;
+	border: 3px solid orange;
+	padding: 0px;
+}
+
+#quiz {
+	height: 500px;
+	width: 900px;
+	margin: 0 auto;
+}
+
+ul.pager li a {
+	color: #222;
+	border-color: #222;
 }
