@@ -44,7 +44,7 @@ function compare(obj, animals){
 			sum += part;
 		}
 		var percent = (sum/13)*100;
-		matches.push({animal: animal, match:percent});
+		matches.push({animal: animal, match:percent, searchType: animals[animal]["searchType"], searchTerm: animals[animal]["searchTerm"], searchSize: animals[animal]["searchSize"], youTubeId: animals[animal]["youTubeId"]});
 	}
 		matches.sort(function(a,b){
 		return b.match-a.match;
@@ -58,7 +58,7 @@ query.once("value").then(function(snapshot){
 	compare(dummyObject, snapshot.val());
 	compare(catObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		$("#results").append("<img src=http://placehold.it/200x200>"+matches[i].animal+matches[i].match)
+		$("#results").append("<img src=http://placehold.it/20x20>"+matches[i].animal+matches[i].match)
 	}
 });
 
