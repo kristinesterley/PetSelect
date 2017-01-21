@@ -1,31 +1,56 @@
 
     // var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&animal=dog&size=L&location=27516&count=5';
 
+var searchObject = {
+    animal: "dog",
+    breed: "",
+    size: "S",
+    zipCode: "27516"
+}
+
+var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
+
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
-        var newDiv = '<div class= "col-xs-6 col-sm-4 col-md-2" id="'+pfId+'">'+
-                '<div class= "adoptee-info text-center">' +
-  
-                    '<img class="animal-image" src='+ pfImage + ' alt='+pfName+'>'+
-                    '<div class="adoptee-name">'+
-                            '<p>'+pfName+'</p>'+
-                    '</div>'+ 
-                    '<div class= "adoptee-gender">'+
-                        '<p>'+pfGender+'</p>'+
-                    '</div>'+
-                    '<button class="btn btn-primary" id="pfId">See More</button>'
-                '</div>'+          
-            '</div>';
+        var newDiv = '<div class= "col-xxs-12 col-xs-6 col-sm-4 col-md-3">'+
+                        '<div class= "adoptee-info text-center">' +
+                            '<img class="adoptee-image" src='+ pfImage + ' alt='+pfName+'>'+
+                            '<div class="adoptee-name">Name: '+pfName+'</div>'+
+                            '<div class="adoptee-gender">Gender: '+pfGender+'</div>'+
+                            '<button class="btn btn-primary btn-petfinder" data-id='+pfId+'>See More</button>'
+                        '</div>'+ 
+                    '</div>';
             return newDiv;
 
 }//end create AdopteeDiv
 
 
+function buildUrl(obj){
+    var str = "";
+    if (obj.animal) {
+        str = obj.animal.replace(/_/gi,"%20");
+        url = url + '&animal='+str;
+    }
+    else if (obj.breed){
+        str = obj.breed.replace(/_/gi,"%20");
+        url = url + '&breed=' + str;
+    }
+    if (obj.size){
+        url = url + '&size='+ obj.size;
+    }
+        
+    url = url +'&location='+obj.zipCode;
+    console.log(url);
+    return url;
 
-function findPet(animalType,animalBreed,animalSize,zipCode){
+}//end buildUrl
+
+function findPet(obj){
 
 
-    var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&breed=red-eared%20slider&location=27516&count=5';
+    url = buildUrl(obj);
+    console.log(url);
+
     $.ajax({
         type : 'GET',
         data : {},
@@ -36,7 +61,7 @@ function findPet(animalType,animalBreed,animalSize,zipCode){
             var image="";
             var name="";
             var gender="";
-            var moreUrl="";
+            var id="";
 
             var petfinder = data.petfinder;
             console.log(petfinder);
@@ -45,7 +70,18 @@ function findPet(animalType,animalBreed,animalSize,zipCode){
                 console.log(thisPet.name['$t']);
 
                 if (thisPet.media && thisPet.media.photos){
-                    image = thisPet.media.photos.photo[3]['$t'];
+                    if (thisPet.media.photos.photo[3]){
+                        image = thisPet.media.photos.photo[3]['$t'];
+                    }    
+                    else if (thisPet.media.photos.photo[2]) {
+                        image = thisPet.media.photos.photo[2]['$t'];
+                    } 
+                    else if (thisPet.media.photos.photo[1]){
+                        image = thisPet.media.photos.photo[1]['$t'];
+                    } 
+                    else if (thisPet.media.photos.photo[0]){
+                        image = thisPet.media.photos.photo[0]['$t'];
+                    }                     
                 }
                 else {                    
                     console.log("No image")
@@ -53,35 +89,28 @@ function findPet(animalType,animalBreed,animalSize,zipCode){
                 }
 
                 if(thisPet.id){
-                    moreUrl=thisPet.id['$t'];
-                    console.log(moreUrl);
-
+                    id=thisPet.id['$t'];
                 }    
                 else {
 
+                    id="";
                 }
                 if (thisPet.name){
                     name=thisPet.name['$t'];
                     console.log(name);
                 }
                 else {
-
+                    name = "Unknown"
                 }
                 if (thisPet.sex){
                     gender=thisPet.sex['$t'];
                     console.log(gender);
                 }
                 else {
-
+                    gender = "Unknown"
                 }
-
                     
-                var animalImage = $("<img class='animal-image'>");
-                animalImage.attr("src",image);
-                $('#petfinderInfo').append(createAdopteeDiv(moreUrl,name,image,gender));
-
-
-
+                $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
 
             }//end for
 
@@ -94,13 +123,17 @@ function findPet(animalType,animalBreed,animalSize,zipCode){
         }
     });//end ajax
 
-}//end function
+}//end findPet
 
 $(document).ready(function(){ 
 
-    findPet("Dog","*","L","27516");
+    findPet(searchObject);
 
 });//end document ready
 
+ $(document).on('click', '.btn-petfinder', function() { 
 
+    window.open('https://www.petfinder.com/petdetail/' + $(this).attr("data-id") ,'_blank' );
+
+ });          
 
