@@ -43,7 +43,7 @@ function compare(obj, animals){
 			//console.log(prop+" "+obj[prop]+", "+animals[animal][prop]);
 			sum += part;
 		}
-		var percent = (sum/13)*100;
+		var percent = Math.round((sum/13)*100);
 		matches.push({animal: animal, match:percent, searchType: animals[animal]["searchType"], searchTerm: animals[animal]["searchTerm"], searchSize: animals[animal]["searchSize"], youTubeId: animals[animal]["youTubeId"]});
 	}
 		matches.sort(function(a,b){
