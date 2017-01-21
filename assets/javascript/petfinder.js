@@ -97,6 +97,7 @@ function findPet(obj){
                 }
                 if (thisPet.name){
                     name=thisPet.name['$t'];
+                    name = name.substring(0,36);
                     console.log(name);
                 }
                 else {
