@@ -1,7 +1,6 @@
 var dummyObject ={
 	Affection: 0,
 	Affordable: 0,
-	Allergies: 0,
 	ChildFriendly: 0,
 	Cleanliness: 0,
 	Coat: 0,
@@ -18,7 +17,6 @@ var dummyObject ={
 var catObject ={
 	Affection: 3,
 	Affordable: 2,
-	Allergies: 4,
 	ChildFriendly: 2,
 	Cleanliness: 2,
 	Coat: 3,
@@ -45,7 +43,7 @@ function compare(obj, animals){
 			//console.log(prop+" "+obj[prop]+", "+animals[animal][prop]);
 			sum += part;
 		}
-		var percent = (sum/14)*100;
+		var percent = (sum/13)*100;
 		matches.push({animal: animal, match:percent});
 	}
 		matches.sort(function(a,b){
