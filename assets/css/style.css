@@ -54,10 +54,22 @@ header {
 	padding: 0px;
 }
 
+#blank-space {
+	height: 1000px;
+}
+
 #quiz {
 	height: 500px;
 	width: 770px;
 	margin: 0 auto;
+}
+
+.Question {
+	height: 300px;
+}
+
+.cls15 {
+	height: 300px;
 }
 
 label {
@@ -97,6 +109,32 @@ p {
 ul.pager li a {
 	color: #222;
 	border-color: #222;
+}
+
+#submit {
+	font-size: 45px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	background-color: #333;
+	color: white;
+	font-family: "Ubuntu";
+	letter-spacing: 0.1em;
+	border: 3px solid orange;
+	padding: 0px;
+	height: 175px;
+	width: 400px;
+}
+
+#blank-space2 {
+	height: 1000px;
+}
+
+#results {
+	width: 800px;
+	height: 500px; /*temporary!*/
 }
 
 .adoptee-info{

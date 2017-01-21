@@ -34,7 +34,7 @@
             <div class = "col-md-12">
 
               <div class="center">
-              <div><button type="button" class="btn btn-default btn-lg">START</button></div>
+              <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
               <div class="center">
 
             </div>
@@ -42,26 +42,8 @@
         </div><!--ROW 1 end-->
 
       <div class="row"><!--ROW 2 begin-->
-        <div class ="col-md-1">
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br>BIG BLANK SPACE<br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
+        <div class ="col-md-1" id="blank-space">
+      
         </div>
 
       </div><!--ROW 2 end-->
@@ -71,69 +53,87 @@
           <div class="container" id="quiz">
             <div class="divs">
              <div class="cls1">
+              <form id = "Q1" class="Question" action="">
                <p class="h2">&nbsp;<br>THE FOLLOWING BEST DESCRIBES YOU..<br>&nbsp;</p><br/>
                <input type="radio" name="outdoor" value="4"><label>Outdoorsy - when is the next outdoor adventure?!</label><br>
                <input type="radio" name="outdoor" value="3"><label>I'm a sidewalk walker, and the park is pretty neat.</label><br>
                <input type="radio" name="outdoor" value="2"><label>I like to relax on my deck/patio/other.</label><br>
                <input type="radio" name="outdoor" value="1"><label>Allergic to the outside world.</label>
+              </form>
              </div>
              <div class="cls2">
+              <form id = "Q2" class="Question" action="">
                <p class="h2">&nbsp;<br>IF SOMEONE MENTIONS PHYSICAL ACTIVITY, YOUR RESPONSE MIGHT BE..</p><br/>
                <input type="radio" name="fitness" value="1"><label>Ew.  Where is my phone?</label><br>
                <input type="radio" name="fitness" value="2"><label>Ohh, yeah, I do that sometimes.</label><br>
                <input type="radio" name="fitness" value="3"><label>I like to take leisurely strolls often.</label><br>
                <input type="radio" name="fitness" value="4"><label>It's leg day and I need to re-up on protein in five minutes.</label>
+              </form>
              </div>
              <div class="cls3">
+              <form id = "Q3" class="Question" action="">
                 <p class="h2">&nbsp;<br>YOUR THOUGHTS ON PHYSICAL AFFECTION:<br>&nbsp;</p><br/>
                <input type="radio" name="affection" value="4"><label>YES, <u>all the time.</u></label><br>
                <input type="radio" name="affection" value="3"><label>Sure.</label><br>
                <input type="radio" name="affection" value="2"><label>It's ok.</label><br>
-               <input type="radio" name="affection" value="1"><label>No.</label>     
+               <input type="radio" name="affection" value="1"><label>No.</label>
+              </form>     
              </div>
              <div class="cls4">
+              <form id = "Q4" class="Question" action="">
                 <p class="h2">&nbsp;<br>YOU ENJOY A MENTAL CHALLENGE.<br>&nbsp;</p><br/>
                <input type="radio" name="intelligence" value="4"><label>YES, <u>all the time.</u></label><br>
                <input type="radio" name="intelligence" value="3"><label>Sure.</label><br>
                <input type="radio" name="intelligence" value="2"><label>Sometimes.</label><br>
                <input type="radio" name="intelligence" value="1"><label>No.</label> 
+              </form>
             </div>            
              <div class="cls5">
+              <form id = "Q5" class="Question" action="">
                 <p class="h2">&nbsp;<br>LOUD NOISES!!!#$(*)#($<br>&nbsp;</p><br/>
                <input type="radio" name="noise" value="4"><label>YES, <u>all the time.</u></label><br>
                <input type="radio" name="noise" value="3"><label>Sometimes.</label><br>
                <input type="radio" name="noise" value="2"><label>Maybe a little bit of background noise is ok.</label><br>
-               <input type="radio" name="noise" value="1"><label>SHHHH!</label>  
+               <input type="radio" name="noise" value="1"><label>SHHHH!</label> 
+              </form> 
             </div>           
              <div class="cls6">
+              <form id = "Q6" class="Question" action="">
                 <p class="h2">&nbsp;<br>IF YOU HAD TO CHOOSE ONE..<br>&nbsp;</p><br/>
                <input type="radio" name="coat" value="1"><label>Fur!</label><br>
-               <input type="radio" name="coat" value="2"><label>Feathers!</label><br>
+               <input type="radio" name="coat" value="4"><label>Feathers!</label><br>
                <input type="radio" name="coat" value="3"><label>Scales!</label><br>
-               <input type="radio" name="coat" value="4"><label>I don't follow rules and I choose all of them.</label>
+               <input type="radio" name="coat" value="2"><label>I don't follow rules and I choose all of them.</label>
+              </form>
             </div>             
              <div class="cls7">
+              <form id = "Q7" class="Question" action="">
                 <p class="h2">&nbsp;<br>SOMEONE JUST ASKED YOU TO CLEAN.  WHAT DO YOU DO?</p><br/>
                <input type="radio" name="cleanliness" value="4"><label>No one has to ask me, because I clean in all of my spare time.</u></label><br>
                <input type="radio" name="cleanliness" value="3"><label>Agree to - I might not like it, but I like being clean.</label><br>
                <input type="radio" name="cleanliness" value="2"><label>Agree to - but I hate whoever asked me.</label><br>
                <input type="radio" name="cleanliness" value="1"><label>Object - I'm content being dirty, thanks.</label>
+              </form>
             </div>
             <div class="cls8">
+              <form id = "Q8" class="Question" action="">
                 <p class="h2">&nbsp;<br>SO...DOES SIZE MATTER?*<br>&nbsp;</p><br/>
                <input type="radio" name="size" value="4"><label>The bigger, the better.</u></label><br>
                <input type="radio" name="size" value="3"><label>I don't like gigantic, but medium-largish is cool.</label><br>
                <input type="radio" name="size" value="2"><label>I prefer smaller.</label><br>
                <input type="radio" name="size" value="1"><label>It should barely fit in my hands.</label><br><br>
                <p>*The size of your potential pet.  Perv.</p>
+              </form>
                
             </div>
             <div class="cls9">
+              <form id = "Q9" class="Question" action="">
                 <p class="h2">&nbsp;<br>THE MOST ACCURATE COMPARISON OF WHERE YOU LIVE:  </p><br/>
                <input type="radio" name="physical-space" value="4"><label>On a farm.</u></label><br>
                <input type="radio" name="physical-space" value="3"><label>Livin' it up in standard suburbia.</label><br>
                <input type="radio" name="physical-space" value="2"><label>Apartment and/or townhome.</label><br>
                <input type="radio" name="physical-space" value="1"><label>A box.  Thanks for bringing it up.</label>
+              </form>
             </div>   
 <!--             <div class="cls10">
                 <p class="h2">&nbsp;<br>ANY ALLERGIES?<br>&nbsp;</p><br/>
@@ -143,34 +143,44 @@
                <input type="radio" name="outdoors" value="4"><label>Nope.</label>
             </div> -->
             <div class="cls11">
+              <form id = "Q11" class="Question" action="">
                 <p class="h2">&nbsp;<br>DID YOU KNOW THAT SOME PARROTS CAN LIVE 60-100 YEARS OLD?</p><br/>
                <input type="radio" name="lifespan" value="4"><label>Sign me up.</u></label><br>
                <input type="radio" name="lifespan" value="3"><label>I think 30 years is my max.</label><br>
                <input type="radio" name="lifespan" value="2"><label>My commitement efforts get exhausted by 15 years or so.</label><br>
                <input type="radio" name="lifespan" value="1"><label>I don't even want to live that long.</label>
+              </form>
             </div> 
             <div class="cls12">
+              <form id = "Q12" class="Question" action="">
                 <p class="h2">&nbsp;<br>DO YOU HAVE KIDS?<br>&nbsp;</p><br/>
                <input type="radio" name="child-friendly" value="1"><label>Yeah, like 10.</label><br>
                <input type="radio" name="child-friendly" value="2"><label>Yes, but they're afraid of most animals.</label><br>
                <input type="radio" name="child-friendly" value="3"><label>Yes, they're good with animals.</label><br>
                <input type="radio" name="child-friendly" value="4"><label>No.</label>
+              </form>
             </div>
             <div class="cls13">
-                <p class="h2">&nbsp;<br>DOES A $200+ YEARLY CHECK-UP SOUND EXPENSIVE TO YOU?<br>&nbsp;</p><br/>
-               <input type="radio" name="affordable" value="1"><label>Yes.</label><br>
-               <input type="radio" name="affordable" value="2"><label>Sort of.</label><br>
-               <input type="radio" name="affordable" value="3"><label>Not really.</label><br>
-               <input type="radio" name="affordable" value="4"><label>No, and I have way more to spare than that.</label>
+              <form id = "Q13" class="Question" action="">
+                <p class="h2">&nbsp;<br>DOES A $200+ YEARLY STANDARD CHECK-UP SOUND EXPENSIVE TO YOU?</p><br/>
+               <input type="radio" name="affordable" value="4"><label>Yes.</label><br>
+               <input type="radio" name="affordable" value="3"><label>Sort of.</label><br>
+               <input type="radio" name="affordable" value="2"><label>Not really.</label><br>
+               <input type="radio" name="affordable" value="1"><label>No, and I have way more to spare than that.</label>
+              </form>
             </div>  
             <div class="cls14">
+              <form id = "Q14" class="Question" action="">
                 <p class="h2">&nbsp;<br>WHICH OF THESE SOUNDS DO YOU LIKE THE MOST?<br>&nbsp;</p><br/>
                <input type="radio" name="sounds" value="4"><label><u>A loud scream</u></label><br>
                <input type="radio" name="sounds" value="3"><label>Woof</label><br>
                <input type="radio" name="sounds" value="2"><label>Meow</label><br>
                <input type="radio" name="sounds" value="1"><label>Silence</label>
-            </div>      
-             <div class="submit">SUBMIT</div>
+              </form>
+            </div> 
+            <div class="cls15">   
+             <button id="submit">SHOW ME MY MATCH!</button>
+            </div>
          </div>
 <!--             <h2 class="question-number" class = "active" data-position="1">QUESTION 1</h2>
                 <form id = "Q1" class="question-number" data-position="1" action="">
@@ -185,13 +195,26 @@
 
       </div><!--Row 3 end-->
 
+      <div class="row"><!--ROW 4 begin-->
+        <div class ="col-md-1" id="blank-space2">
+      
+        </div>
+
+      </div><!--ROW 4 end-->
+
+      <div class="row"><!--ROW 5 begin-->
+        <div class="col-md-12" id="results">
+        <p class=h3>Your results content</p>
+        </div>
+      </div><!--ROW 5 end-->
+
 
 <script>
 //this will be moved to a js file.
 
 
 //Scroll to quiz!
-$("button").click(function() {
+$("#start").click(function() {
     $('html,body').animate({
         scrollTop: $("#quiz").offset().top},
         'slow');
@@ -234,6 +257,104 @@ $(".divs > div").each(function(e) {
         return false;
 });
 
+//store *checked* values inside of the quiz response object (to be compared to animal objects)
+var quizResponse = {
+  affection: 0,
+  affordable: 0,
+  childFriendly: 0,
+  cleanliness: 0,
+  coat: 0, 
+  fitness: 0,
+  intelligence: 0,
+  lifespan: 0,
+  noise: 0,
+  outdoor: 0,
+  physicalSpace: 0,
+  size: 0,
+  sounds: 0
+}
+
+var storeResponse = function() {
+  $('#Q1 input').on('change', function() {
+    //take input from selected radio button and store in variable to be converted into an integer.
+   outdoor = $('input[name=outdoor]:checked', '#Q1').val(); 
+   quizResponse.outdoor = parseInt(outdoor);
+  });
+
+  $('#Q2 input').on('change', function() {
+   fitness = $('input[name=fitness]:checked', '#Q2').val();
+   quizResponse.fitness = parseInt(fitness); 
+  });
+
+  $('#Q3 input').on('change', function() {
+   affection = $('input[name=affection]:checked', '#Q3').val();
+   quizResponse.affection = parseInt(affection); 
+  });
+
+  $('#Q4 input').on('change', function() {
+   intelligence = $('input[name=intelligence]:checked', '#Q4').val(); 
+   quizResponse.intelligence = parseInt(intelligence);
+  });
+
+  $('#Q5 input').on('change', function() {
+   noise = $('input[name=noise]:checked', '#Q5').val();
+   quizResponse.noise = parseInt(noise);
+  });
+
+  $('#Q6 input').on('change', function() {
+   coat = $('input[name=coat]:checked', '#Q6').val(); 
+   quizResponse.coat = parseInt(coat);
+  });
+
+  $('#Q7 input').on('change', function() {
+   cleanliness = $('input[name=cleanliness]:checked', '#Q7').val(); 
+   quizResponse.cleanliness = parseInt(cleanliness);
+  });
+
+  $('#Q8 input').on('change', function() {
+   size = $('input[name=size]:checked', '#Q8').val();
+   quizResponse.size = parseInt(size); 
+  });
+
+  $('#Q9 input').on('change', function() {
+   physicalSpace = $('input[name=physical-space]:checked', '#Q9').val();
+   quizResponse.physicalSpace = parseInt(physicalSpace);
+  });
+
+  $('#Q11 input').on('change', function() {
+   lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
+   quizResponse.lifespan = parseInt(lifespan);
+  });
+
+  $('#Q12 input').on('change', function() {
+   childFriendly = $('input[name=child-friendly]:checked', '#Q12').val(); 
+   quizResponse.childFriendly = parseInt(childFriendly);
+  });
+
+  $('#Q13 input').on('change', function() {
+   affordable = $('input[name=affordable]:checked', '#Q13').val(); 
+   quizResponse.affordable = parseInt(affordable); 
+  });
+
+  $('#Q14 input').on('change', function() {
+   sounds = $('input[name=sounds]:checked', '#Q14').val(); 
+   quizResponse.sounds = parseInt(sounds);
+  });
+
+};
+
+storeResponse();
+
+$("#submit").on("click", function() {
+  console.log(quizResponse);
+});
+
+//Scroll to results
+$("#submit").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#results").offset().top},
+        'slow');
+});
 
 </script>
 
