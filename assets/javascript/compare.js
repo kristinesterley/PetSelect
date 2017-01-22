@@ -14,7 +14,7 @@ var dummyObject ={
 	sounds: 0
 }
 
-var catObject ={
+var testObject ={
 	affection: 3,
 	affordable: 2,
 	childFriendly: 2,
@@ -37,14 +37,14 @@ function compare(obj, animals){
 	matches = [];
 	for(animal in animals){
 		var sum = 0;
-		//console.log("animal", animals[animal]);
+
 		for(prop in obj){
 			var part = 1-(Math.abs(obj[prop]-animals[animal][prop]))/4;
-			//console.log(prop+" "+obj[prop]+", "+animals[animal][prop]);
 			sum += part;
 		}
 		var percent = Math.round((sum/13)*100);
-		matches.push({animal: animal, match:percent, searchType: animals[animal]["searchType"], searchTerm: animals[animal]["searchTerm"], searchSize: animals[animal]["searchSize"], youTubeId: animals[animal]["youTubeId"]});
+		matches.push({animal: animal, match:percent, searchType: animals[animal]["searchType"], searchTerm: animals[animal]["searchTerm"], searchSize: animals[animal]["searchSize"], youTubeId: animals[animal]["youTubeId"],icon: animals[animal]["icon"]});
+		console.log(animal);
 	}
 		matches.sort(function(a,b){
 		return b.match-a.match;
@@ -54,11 +54,17 @@ function compare(obj, animals){
 
 var query = database.ref().orderByKey();
 query.once("value").then(function(snapshot){
-	console.log("snapshot",snapshot.val());
-	compare(dummyObject, snapshot.val());
-	compare(catObject, snapshot.val());
+
+	compare(testObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		$("#results").append("<img src=http://placehold.it/20x20>"+matches[i].animal+matches[i].match)
+		var newButton = '<button class="btn btn-default btn-select" data-youTubeId='+ matches[i].youTubeId+
+				' data-searchType=' + matches[i].searchType+
+				' data-searchTerm='+ matches[i].searchTerm + 
+				' data-searchSize=' + matches[i].searchSize +
+				'> <img src="./assets/images/'+matches[i].icon+'" id="icon">'+ ' '+
+				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button>';  
+		// $("#results").append("<img src=http://placehold.it/20x20>"+matches[i].animal+matches[i].match)
+		$("#results").append(newButton);
 	}
 });
 
