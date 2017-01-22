@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 	  <!-- Link to the jQuery Library -->
   <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
@@ -9,11 +10,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+	
 
 </head>
 <body>
 	 
-	<div class="container">
+	<div id="results"></div> <!-- div for quiz results buttons -->
+	 
+	<div class="container"> <!-- div for YouTube video player -->
 	<div class="row">
 	<div class="col-md-7">	
 		<div class="media">
@@ -26,17 +30,15 @@
  	</div>	
  	<br>
 	
-	<div class = "container" >
-	<div class = "row">
-	<div class = "panel panel-default" id="adoptees">
-	  	<div class="panel-heading">Pets Near You Available for Adoption</div>
-		<div class = "panel-body" id="petfinderInfo">			
-		</div>
-	</div> <!--end panel-->
+	<div class = "container"> <!-- div for pet finder adoptee pics -->
+	<div class = "row" id="petPix">
+
 	</div> <!--end row-->
 	</div> <!--end container-->
 
-  <script type="text/javascript" src="./assets/javascript/petfinder.js"></script>
-  <script type="text/javascript" src="./assets/javascript/uTube.js"></script>
+	<script src ="assets/javascript/compare.js"></script>
+	<script type="text/javascript" src="./assets/javascript/uTube.js"></script>
+  	<script type="text/javascript" src="./assets/javascript/petfinder.js"></script>
+
 </body>
 </html>

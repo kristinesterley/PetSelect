@@ -1,18 +1,4 @@
-var dummyObject ={
-	affection: 0,
-	affordable: 0,
-	childFriendly: 0,
-	cleanliness: 0,
-	coat: 0,
-	fitness: 0,
-	intelligence: 0,
-	lifeSpan: 0,
-	noise: 0,
-	outdoor: 0,
-	physicalSpace: 0,
-	size: 0,
-	sounds: 0
-}
+
 
 var testObject ={
 	affection: 3,
@@ -30,7 +16,25 @@ var testObject ={
 	sounds: 1
 }
 
+var searchObject = {
+    animal: "",
+    breed: "",
+    size: "",
+    zipCode: "27516"
+}
+
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyBTcXyEm3GJvwnMSW1GFKwmVNpdptrhvKU",
+	authDomain: "petselect-484f0.firebaseapp.com",
+	databaseURL: "https://petselect-484f0.firebaseio.com",
+	storageBucket: "petselect-484f0.appspot.com",
+	messagingSenderId: "77093177831"
+};
+firebase.initializeApp(config);
 database = firebase.database();
+
+
 var matches=[];
 
 function compare(obj, animals){
@@ -66,5 +70,55 @@ query.once("value").then(function(snapshot){
 		// $("#results").append("<img src=http://placehold.it/20x20>"+matches[i].animal+matches[i].match)
 		$("#results").append(newButton);
 	}
+	$("#results").append("<br><br><br>")
 });
+
+ $(document).on('click', '.btn-select', function() {
+
+ 	var animalVideo = $(this).attr('data-youTubeId')
+ 	console.log(animalVideo);
+ 	// playvideo('_5KWaRhii2M');
+ 	if (player){
+		player.loadVideoById(animalVideo);			
+	}
+	else {	
+ 		playVideo(animalVideo);
+ 	}
+ 	var tempType = $(this).attr('data-searchType');
+ 	var tempTerm = $(this).attr('data-searchTerm');
+ 	var tempSize = $(this).attr('data-searchSize');
+ 	var tempName = $(this).text();
+ 	console.log("type: "+tempType);
+
+ 	if (tempType === "A"){
+ 		searchObject.animal = tempTerm;
+ 		searchObject.breed = "";
+    	if (tempSize != ""){
+ 			searchObject.size = tempSize;
+ 		}
+ 		else {
+ 			searchObject.size = "";
+ 		}
+	}
+	else if (tempType === "B"){
+		searchObject.animal = "";
+		searchObject.breed = tempTerm;
+		searchObject.size = "";
+
+	}
+		console.log("searchObject");
+		console.log(searchObject);
+
+		$("#petPix").empty();
+	    createPanelDiv(tempName);
+	    findPet(searchObject);
+ });          
+
+
+
+
+
+
+
+
 

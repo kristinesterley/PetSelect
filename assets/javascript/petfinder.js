@@ -1,14 +1,22 @@
 
     // var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&animal=dog&size=L&location=27516&count=5';
 
-var searchObject = {
-    animal: "dog",
-    breed: "",
-    size: "S",
-    zipCode: "27516"
+// var searchObject = {
+//     animal: "dog",
+//     breed: "",
+//     size: "S",
+//     zipCode: "27516"
+// }
+
+function createPanelDiv(name) {
+    var newDiv = '<div class = "panel panel-default" id="adoptees">' +
+        '<div class="panel-heading">'+name+' Near You Available for Adoption</div>'+
+        '<div class = "panel-body" id="petfinderInfo">'+           
+        '</div>'+
+        '</div>';
+        $("#petPix").append(newDiv); 
 }
 
-var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
 
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
@@ -26,22 +34,25 @@ function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adopt
 
 
 function buildUrl(obj){
+
+var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
+
     var str = "";
     if (obj.animal) {
         str = obj.animal.replace(/_/gi,"%20");
-        url = url + '&animal='+str;
+        urlBuild = urlBuild + '&animal='+str;
     }
     else if (obj.breed){
         str = obj.breed.replace(/_/gi,"%20");
-        url = url + '&breed=' + str;
+        urlBuild = urlBuild + '&breed=' + str;
     }
     if (obj.size){
-        url = url + '&size='+ obj.size;
+        urlBuild = urlBuild + '&size='+ obj.size;
     }
         
-    url = url +'&location='+obj.zipCode;
-    console.log(url);
-    return url;
+    urlBuild = urlBuild +'&location='+obj.zipCode;
+    console.log(urlBuild);
+    return urlBuild;
 
 }//end buildUrl
 
@@ -111,6 +122,7 @@ function findPet(obj){
                     gender = "Unknown"
                 }
                     
+            
                 $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
 
             }//end for
@@ -120,17 +132,17 @@ function findPet(obj){
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
+            console.log("Request: "+JSON.stringify(request));
         }
     });//end ajax
 
 }//end findPet
 
-$(document).ready(function(){ 
+// $(document).ready(function(){ 
 
-    findPet(searchObject);
+//     findPet(searchObject);
 
-});//end document ready
+// });//end document ready
 
  $(document).on('click', '.btn-petfinder', function() { 
 
