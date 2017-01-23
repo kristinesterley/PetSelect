@@ -12,7 +12,7 @@ function createPanelDiv(name) {
 
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
-        var newDiv = '<div class= "col-xxs-12 col-xs-6 col-sm-4 col-md-3">'+
+        var newDiv = '<div class= "col-xs-6 col-sm-4 col-md-3">'+
         // var newDiv = '<div class = "col xxs12 xs-6 s-4 m-3">' +                
                         '<div class= "adoptee-info text-center">' +
                             '<img class="adoptee-image" src='+ pfImage + ' alt='+pfName+'>'+
@@ -26,7 +26,7 @@ function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adopt
 }//end create AdopteeDiv
 
 function createShelterDiv(){
-           var newDiv =   '<div class="panel panel-default">'+
+           var newDiv =   '<div class="panel panel-default" id="shelter-panel">'+
                                 '<div class="panel-heading">'+
                                     '<h3 class="panel-title">Local Animal Shelters</h3>'+
                                 '</div>'+
@@ -34,13 +34,36 @@ function createShelterDiv(){
                                     // Panel content
                                 '</div>'+
                             '</div>';
+            $("#shelters").append(newDiv);                
 
 }
 
-function buildShelterUrl(zCode) {
 
-    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=10' + '&location=' + zCode;
-    console.log(urlShelter);
+function displayShelter(name,city,state,email,phone){
+
+    var newDiv =    '<address>' +
+                    '<strong>'+name+'</strong><br>'+
+                    city + ", " + state + '<br>';
+                     if (phone){
+                        newDiv = newDiv + '<abbr title="Phone">P:</abbr>' + phone + '<br>';
+                     }   
+                     newDiv = newDiv + 
+                    '<a href="mailto:'+email+'">' + email + '</a>' +
+                    '</address>'
+
+
+    $("#shelter-list").append(newDiv);
+}
+
+function getShelters(zCode) {
+
+    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=4' + '&location=' + zCode;
+    var shelterName = "";
+    var shelterCity = "";
+    var shelterState = "";
+    var shelterEmail = "";
+    var shelterPhone = "";
+
     $.ajax({
         type : 'GET',
         data : {},
@@ -50,27 +73,63 @@ function buildShelterUrl(zCode) {
             console.log("shelter data");
             console.log(data);
 
+            var petfinder = data.petfinder;
+            for (var i=0;i<petfinder.shelters.shelter.length;i++){
+                var thisShelter = petfinder.shelters.shelter[i];
+                if (thisShelter.name){
+                    shelterName = thisShelter.name['$t'];
+                }
+                else {
+                    shelterName = "Unknown";
+                }
+                if (thisShelter.city){
+                    shelterCity = thisShelter.city['$t'];
+                }
+                else {
+                    shelterCity = "Unknown";
+                }
+                if (thisShelter.state){
+                    shelterState = thisShelter.state['$t'];
+                }
+                else {
+                    shelterState = "Unknown";
+                }
+                if (thisShelter.email){
+                    shelterEmail = thisShelter.email['$t'];
+                }
+                else {
+                    shelterEmail = "Unknown";
+                } 
+                if (thisShelter.phone){
+                    shelterPhone = thisShelter.phone['$t'];
+                }
+                else {
+                    shelterEmail = "";
+                } 
+
+                displayShelter(shelterName, shelterCity, shelterState, shelterEmail, shelterPhone);       
+
+            } 
 
 
-
-        },
+        }, // end success
         error : function(request,error)
         {
             console.log("Request: "+JSON.stringify(request));
-        }
+        } // end error
 
     });//end ajax
 
-}//end buildShelterUrl
+}//end getShelters
 
 
 
 
 
 
-function buildUrl(obj){
+function buildPetUrl(obj){
 
-var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
+    var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
 
     var str = "";
     if (obj.animal) {
@@ -89,12 +148,12 @@ var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369
     console.log(urlBuild);
     return urlBuild;
 
-}//end buildUrl
+}//end buildPetUrl
 
 function findPet(obj){
 
 
-    url = buildUrl(obj);
+    url = buildPetUrl(obj);
     console.log(url);
 
     $.ajax({
@@ -110,7 +169,7 @@ function findPet(obj){
             var id="";
 
             var petfinder = data.petfinder;
-            console.log(petfinder);
+
             for (var i=0;i<petfinder.pets.pet.length;i++){
                 var thisPet = petfinder.pets.pet[i];
                 console.log(thisPet.name['$t']);
@@ -130,7 +189,6 @@ function findPet(obj){
                     }                     
                 }
                 else {                    
-                    console.log("No image")
                     image = "./assets/images/no-image-available.png"
                 }
 
@@ -138,28 +196,22 @@ function findPet(obj){
                     id=thisPet.id['$t'];
                 }    
                 else {
-
                     id="";
                 }
                 if (thisPet.name){
                     name=thisPet.name['$t'];
                     name = name.substring(0,36);
-                    console.log(name);
                 }
                 else {
                     name = "Unknown"
                 }
                 if (thisPet.sex){
                     gender=thisPet.sex['$t'];
-                    console.log(gender);
                 }
                 else {
                     gender = "Unknown"
-                }
-                    
-            
+                }           
                 $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
-
             }//end for
 
 
@@ -170,7 +222,6 @@ function findPet(obj){
             console.log("Request: "+JSON.stringify(request));
         }
     });//end ajax
-
 }//end findPet
 
 

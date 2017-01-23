@@ -63,6 +63,25 @@ ul.pager li a {
 	border-color: #222;
 }
 
+#btn-sel-0 {
+	width: 50%;
+}
+#btn-sel-1 {
+	width: 48%;
+}
+#btn-sel-2 {
+	width: 46%;
+}
+#btn-sel-3 {
+	width: 44%;
+}
+#btn-sel-4{
+	width: 42%;
+}
+#btn-sel-5 {
+	width: 40%;
+}
+
 #player {
 
 }
@@ -107,7 +126,7 @@ img {
 
 }
 
-.btn-petfinder {
+.btn-petfinder, .panel {
 	border-radius: 0px;
 }
 .btn-select {

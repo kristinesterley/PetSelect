@@ -20,7 +20,7 @@ var searchObject = {
     animal: "",
     breed: "",
     size: "",
-    zipCode: "27516"
+    zipCode: "28036"
 }
 
 // Initialize Firebase
@@ -61,17 +61,21 @@ query.once("value").then(function(snapshot){
 
 	compare(testObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" data-youTubeId='+ matches[i].youTubeId+
+		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" id="btn-sel-' + i + '"'+
+				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
 				' data-searchTerm='+ matches[i].searchTerm + 
 				' data-searchSize=' + matches[i].searchSize +
 				'> <img src="./assets/images/'+matches[i].icon+'" id="icon">'+ ' '+
 				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button></li>';  
+
+
 		
 		
 		$("#results").append(newButton);
 		// $("#results").append("<br><br>");
 	} //end for
+
 
 	$("#results").append("<br><br>");
 });
@@ -89,7 +93,7 @@ query.once("value").then(function(snapshot){
 
  	$("#shelter-panel").remove();
  	createShelterDiv();
- 	getShelters('27516');
+ 	getShelters('28036');
 
 
 
