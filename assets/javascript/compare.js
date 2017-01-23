@@ -61,34 +61,44 @@ query.once("value").then(function(snapshot){
 
 	compare(testObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		var newButton = '<button class="btn btn-default btn-select" data-youTubeId='+ matches[i].youTubeId+
+		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" data-youTubeId='+ matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
 				' data-searchTerm='+ matches[i].searchTerm + 
 				' data-searchSize=' + matches[i].searchSize +
 				'> <img src="./assets/images/'+matches[i].icon+'" id="icon">'+ ' '+
-				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button>';  
-		// $("#results").append("<img src=http://placehold.it/20x20>"+matches[i].animal+matches[i].match)
+				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button></li>';  
+		
+		
 		$("#results").append(newButton);
-	}
-	$("#results").append("<br><br><br>")
+		// $("#results").append("<br><br>");
+	} //end for
+
+	$("#results").append("<br><br>");
 });
 
  $(document).on('click', '.btn-select', function() {
 
  	var animalVideo = $(this).attr('data-youTubeId')
- 	console.log(animalVideo);
- 	// playvideo('_5KWaRhii2M');
+
  	if (player){
 		player.loadVideoById(animalVideo);			
 	}
 	else {	
  		playVideo(animalVideo);
  	}
+
+ 	buildShelterUrl('27516');
+
+
  	var tempType = $(this).attr('data-searchType');
  	var tempTerm = $(this).attr('data-searchTerm');
  	var tempSize = $(this).attr('data-searchSize');
+ 	
  	var tempName = $(this).text();
- 	console.log("type: "+tempType);
+ 	tempName = tempName.trim();
+ 	tempName = tempName.slice(0,-3);
+ 	tempName = tempName.trim(); 
+ 	tempName = tempName + "s";
 
  	if (tempType === "A"){
  		searchObject.animal = tempTerm;
@@ -106,9 +116,6 @@ query.once("value").then(function(snapshot){
 		searchObject.size = "";
 
 	}
-		console.log("searchObject");
-		console.log(searchObject);
-
 		$("#petPix").empty();
 	    createPanelDiv(tempName);
 	    findPet(searchObject);

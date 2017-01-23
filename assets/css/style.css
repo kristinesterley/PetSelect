@@ -79,7 +79,8 @@ ul.pager li a {
 }
 
 #adoptees{
-	background-color: #d9e4f4;
+	/*background-color: #d9e4f4;*/
+	background: url("../images/blu_stripes.png");
 }
 
 .adoptee-image {
@@ -109,8 +110,8 @@ img {
 .btn-petfinder {
 	border-radius: 0px;
 }
-.btn-petselect {
-
+.btn-select {
+	margin: 5px;
 }
 #icon {
 	width:25px;

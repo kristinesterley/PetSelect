@@ -1,16 +1,8 @@
 
-    // var url = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&animal=dog&size=L&location=27516&count=5';
-
-// var searchObject = {
-//     animal: "dog",
-//     breed: "",
-//     size: "S",
-//     zipCode: "27516"
-// }
 
 function createPanelDiv(name) {
     var newDiv = '<div class = "panel panel-default" id="adoptees">' +
-        '<div class="panel-heading">'+name+' Near You Available for Adoption</div>'+
+        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4></div>'+
         '<div class = "panel-body" id="petfinderInfo">'+           
         '</div>'+
         '</div>';
@@ -21,16 +13,59 @@ function createPanelDiv(name) {
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
         var newDiv = '<div class= "col-xxs-12 col-xs-6 col-sm-4 col-md-3">'+
+        // var newDiv = '<div class = "col xxs12 xs-6 s-4 m-3">' +                
                         '<div class= "adoptee-info text-center">' +
                             '<img class="adoptee-image" src='+ pfImage + ' alt='+pfName+'>'+
                             '<div class="adoptee-name">Name: '+pfName+'</div>'+
                             '<div class="adoptee-gender">Gender: '+pfGender+'</div>'+
-                            '<button class="btn btn-primary btn-petfinder" data-id='+pfId+'>See More</button>'+
+                            '<button class="btn btn-primary green lighten-1 btn-petfinder" data-id='+pfId+'>See More</button>'+
                         '</div>'+ 
                     '</div>';
             return newDiv;
 
 }//end create AdopteeDiv
+
+function createShelterDiv(){
+           var newDiv =   '<div class="panel panel-default">'+
+                                '<div class="panel-heading">'+
+                                    '<h3 class="panel-title">Local Animal Shelters</h3>'+
+                                '</div>'+
+                                '<div class="panel-body" id="shelter-list">'+
+                                    // Panel content
+                                '</div>'+
+                            '</div>';
+
+}
+
+function buildShelterUrl(zCode) {
+
+    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=10' + '&location=' + zCode;
+    console.log(urlShelter);
+    $.ajax({
+        type : 'GET',
+        data : {},
+        url : urlShelter+'&callback=?' ,
+        dataType: 'json',
+        success : function(data) {  
+            console.log("shelter data");
+            console.log(data);
+
+
+
+
+        },
+        error : function(request,error)
+        {
+            console.log("Request: "+JSON.stringify(request));
+        }
+
+    });//end ajax
+
+}//end buildShelterUrl
+
+
+
+
 
 
 function buildUrl(obj){
@@ -138,11 +173,7 @@ function findPet(obj){
 
 }//end findPet
 
-// $(document).ready(function(){ 
 
-//     findPet(searchObject);
-
-// });//end document ready
 
  $(document).on('click', '.btn-petfinder', function() { 
 
