@@ -1,4 +1,6 @@
 
+var testZip = "27516";
+var buttonWidth = 500;
 
 var testObject ={
 	affection: 3,
@@ -20,7 +22,7 @@ var searchObject = {
     animal: "",
     breed: "",
     size: "",
-    zipCode: "28036"
+    zipCode: testZip
 }
 
 // Initialize Firebase
@@ -61,7 +63,7 @@ query.once("value").then(function(snapshot){
 
 	compare(testObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" id="btn-sel-' + i + '"'+
+		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
 				' data-searchTerm='+ matches[i].searchTerm + 
@@ -93,7 +95,7 @@ query.once("value").then(function(snapshot){
 
  	$("#shelter-panel").remove();
  	createShelterDiv();
- 	getShelters('28036');
+ 	getShelters(testZip);
 
 
 

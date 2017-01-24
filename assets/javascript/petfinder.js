@@ -2,7 +2,7 @@
 
 function createPanelDiv(name) {
     var newDiv = '<div class = "panel panel-default" id="adoptees">' +
-        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4></div>'+
+        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4><img src="./assets/images/sun.png" id="icon"></div>'+
         '<div class = "panel-body" id="petfinderInfo">'+           
         '</div>'+
         '</div>';
@@ -12,8 +12,7 @@ function createPanelDiv(name) {
 
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
-        var newDiv = '<div class= "col-xs-6 col-sm-4 col-md-3">'+
-        // var newDiv = '<div class = "col xxs12 xs-6 s-4 m-3">' +                
+        var newDiv = '<div class= "col-xs-6 col-sm-4 col-md-3">'+              
                         '<div class= "adoptee-info text-center">' +
                             '<img class="adoptee-image" src='+ pfImage + ' alt='+pfName+'>'+
                             '<div class="adoptee-name">Name: '+pfName+'</div>'+
@@ -22,7 +21,6 @@ function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adopt
                         '</div>'+ 
                     '</div>';
             return newDiv;
-
 }//end create AdopteeDiv
 
 function createShelterDiv(){
@@ -37,7 +35,6 @@ function createShelterDiv(){
             $("#shelters").append(newDiv);                
 
 }
-
 
 function displayShelter(name,city,state,email,phone){
 
@@ -110,21 +107,13 @@ function getShelters(zCode) {
                 displayShelter(shelterName, shelterCity, shelterState, shelterEmail, shelterPhone);       
 
             } 
-
-
         }, // end success
         error : function(request,error)
         {
             console.log("Request: "+JSON.stringify(request));
         } // end error
-
     });//end ajax
-
 }//end getShelters
-
-
-
-
 
 
 function buildPetUrl(obj){
@@ -147,7 +136,6 @@ function buildPetUrl(obj){
     urlBuild = urlBuild +'&location='+obj.zipCode;
     console.log(urlBuild);
     return urlBuild;
-
 }//end buildPetUrl
 
 function findPet(obj){
@@ -213,9 +201,6 @@ function findPet(obj){
                 }           
                 $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
             }//end for
-
-
-
         },
         error : function(request,error)
         {

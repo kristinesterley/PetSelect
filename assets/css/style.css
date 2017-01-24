@@ -63,31 +63,13 @@ ul.pager li a {
 	border-color: #222;
 }
 
-#btn-sel-0 {
-	width: 50%;
-}
-#btn-sel-1 {
-	width: 48%;
-}
-#btn-sel-2 {
-	width: 46%;
-}
-#btn-sel-3 {
-	width: 44%;
-}
-#btn-sel-4{
-	width: 42%;
-}
-#btn-sel-5 {
-	width: 40%;
-}
-
-#player {
-
+.panel {
+	font-family: "Ubuntu";
 }
 
 .adoptee-info{
 	clear:both;
+	font-family: "Ubuntu";
 	width:200px;
 	padding:5px;
 	height:235px;
@@ -98,7 +80,6 @@ ul.pager li a {
 }
 
 #adoptees{
-	/*background-color: #d9e4f4;*/
 	background: url("../images/blu_stripes.png");
 }
 
@@ -106,31 +87,25 @@ ul.pager li a {
 	width: 120px;
 	height: 120px;
 	margin-top: 10px;
-
-
 }
 
 #adoptee-name, #adoptee-gender {
 	clear:both;
 	line-height:5px;
-
-
 }
 img {
 	max-width: 100%;
 	max-height: 100%;
 }
 
-.adoptees {
-	margin-left: 10px;
-
-}
 
 .btn-petfinder, .panel {
 	border-radius: 0px;
 }
 .btn-select {
+	font-family: "Ubuntu";
 	margin: 5px;
+	min-width: 200px;
 }
 #icon {
 	width:25px;
