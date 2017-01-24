@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!-- Link to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+  <!-- link to the firebase library -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+   <!-- Link to the Bootstrap library -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Link to the Materialize library - Compiled and minified CSS -->
+ <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> -->
+
+  <!-- Link to an additional CSS file -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<div class="container">
+        <div class="center">
+        <header>         
+          <div id="questM">?</h1></div><!--Replace with ? image-->
+          <p class="h1" id="firstTitle">WHICH PET IS RIGHT FOR YOU?</p>
+          <!--HIDE SECOND fade in between texts (use jquery to replace above text)-->
+         <!--  <p class="h1" id="secondTitle">Click START to find out</p> -->
+        </header>
+        </div>
+
+        <div class="row">
+            <div class = "col-md-12">
+
+              <div class="center">
+              <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
+              <div class="center">
+
+            </div>
+
+        </div><!--ROW 1 end-->
+
+      <div class="row"><!--ROW 2 begin-->
+        <div class ="col-md-1" id="blank-space">
+      
+        </div>
+
+      </div><!--ROW 2 end-->
+
+      <div class="row"><!--ROW 3 begin-->
+
+          <div class="container" id="quiz">
+            <div class="divs">
+             <div class="cls1">
+              <form id = "Q1" class="Question" action="">
+               <p class="h2">&nbsp;<br>THE FOLLOWING BEST DESCRIBES YOU..<br>&nbsp;</p><br/>
+               <input type="radio" name="outdoor" value="4"><label>Outdoorsy - when is the next outdoor adventure?!</label><br>
+               <input type="radio" name="outdoor" value="3"><label>I'm a sidewalk walker, and the park is pretty neat.</label><br>
+               <input type="radio" name="outdoor" value="2"><label>I like to relax on my deck/patio/other.</label><br>
+               <input type="radio" name="outdoor" value="1"><label>Allergic to the outside world.</label>
+              </form>
+             </div>
+             <div class="cls2">
+              <form id = "Q2" class="Question" action="">
+               <p class="h2">&nbsp;<br>IF SOMEONE MENTIONS PHYSICAL ACTIVITY, YOUR RESPONSE MIGHT BE..</p><br/>
+               <input type="radio" name="fitness" value="1"><label>Ew.  Where is my phone?</label><br>
+               <input type="radio" name="fitness" value="2"><label>Ohh, yeah, I do that sometimes.</label><br>
+               <input type="radio" name="fitness" value="3"><label>I like to take leisurely strolls often.</label><br>
+               <input type="radio" name="fitness" value="4"><label>It's leg day and I need to re-up on protein in five minutes.</label>
+              </form>
+             </div>
+             <div class="cls3">
+              <form id = "Q3" class="Question" action="">
+                <p class="h2">&nbsp;<br>YOUR THOUGHTS ON PHYSICAL AFFECTION:<br>&nbsp;</p><br/>
+               <input type="radio" name="affection" value="4"><label>YES, <u>all the time.</u></label><br>
+               <input type="radio" name="affection" value="3"><label>Sure.</label><br>
+               <input type="radio" name="affection" value="2"><label>It's ok.</label><br>
+               <input type="radio" name="affection" value="1"><label>No.</label>
+              </form>     
+             </div>
+             <div class="cls4">
+              <form id = "Q4" class="Question" action="">
+                <p class="h2">&nbsp;<br>YOU ENJOY A MENTAL CHALLENGE.<br>&nbsp;</p><br/>
+               <input type="radio" name="intelligence" value="4"><label>YES, <u>all the time.</u></label><br>
+               <input type="radio" name="intelligence" value="3"><label>Sure.</label><br>
+               <input type="radio" name="intelligence" value="2"><label>Sometimes.</label><br>
+               <input type="radio" name="intelligence" value="1"><label>No.</label> 
+              </form>
+            </div>            
+             <div class="cls5">
+              <form id = "Q5" class="Question" action="">
+                <p class="h2">&nbsp;<br>LOUD NOISES!!!#$(*)#($<br>&nbsp;</p><br/>
+               <input type="radio" name="noise" value="4"><label>YES, <u>all the time.</u></label><br>
+               <input type="radio" name="noise" value="3"><label>Sometimes.</label><br>
+               <input type="radio" name="noise" value="2"><label>Maybe a little bit of background noise is ok.</label><br>
+               <input type="radio" name="noise" value="1"><label>SHHHH!</label> 
+              </form> 
+            </div>           
+             <div class="cls6">
+              <form id = "Q6" class="Question" action="">
+                <p class="h2">&nbsp;<br>IF YOU HAD TO CHOOSE ONE..<br>&nbsp;</p><br/>
+               <input type="radio" name="coat" value="1"><label>Fur!</label><br>
+               <input type="radio" name="coat" value="4"><label>Feathers!</label><br>
+               <input type="radio" name="coat" value="3"><label>Scales!</label><br>
+               <input type="radio" name="coat" value="2"><label>I don't follow rules and I choose all of them.</label>
+              </form>
+            </div>             
+             <div class="cls7">
+              <form id = "Q7" class="Question" action="">
+                <p class="h2">&nbsp;<br>SOMEONE JUST ASKED YOU TO CLEAN.  WHAT DO YOU DO?</p><br/>
+               <input type="radio" name="cleanliness" value="4"><label>No one has to ask me, because I clean in all of my spare time.</u></label><br>
+               <input type="radio" name="cleanliness" value="3"><label>Agree to - I might not like it, but I like being clean.</label><br>
+               <input type="radio" name="cleanliness" value="2"><label>Agree to - but I hate whoever asked me.</label><br>
+               <input type="radio" name="cleanliness" value="1"><label>Object - I'm content being dirty, thanks.</label>
+              </form>
+            </div>
+            <div class="cls8">
+              <form id = "Q8" class="Question" action="">
+                <p class="h2">&nbsp;<br>SO...DOES SIZE MATTER?*<br>&nbsp;</p><br/>
+               <input type="radio" name="size" value="4"><label>The bigger, the better.</u></label><br>
+               <input type="radio" name="size" value="3"><label>I don't like gigantic, but medium-largish is cool.</label><br>
+               <input type="radio" name="size" value="2"><label>I prefer smaller.</label><br>
+               <input type="radio" name="size" value="1"><label>It should barely fit in my hands.</label><br><br>
+               <p>*The size of your potential pet.  Perv.</p>
+              </form>
+               
+            </div>
+            <div class="cls9">
+              <form id = "Q9" class="Question" action="">
+                <p class="h2">&nbsp;<br>THE MOST ACCURATE COMPARISON OF WHERE YOU LIVE:  </p><br/>
+               <input type="radio" name="physical-space" value="4"><label>On a farm.</u></label><br>
+               <input type="radio" name="physical-space" value="3"><label>Livin' it up in standard suburbia.</label><br>
+               <input type="radio" name="physical-space" value="2"><label>Apartment and/or townhome.</label><br>
+               <input type="radio" name="physical-space" value="1"><label>A box.  Thanks for bringing it up.</label>
+              </form>
+            </div>   
+<!--             <div class="cls10">
+                <p class="h2">&nbsp;<br>ANY ALLERGIES?<br>&nbsp;</p><br/>
+               <input type="radio" name="outdoors" value="1"><label><u>Everything.</u> <font size="3">(dogs and cats)</font></label><br>
+               <input type="radio" name="outdoors" value="2"><label>Not to dogs.</label><br>
+               <input type="radio" name="outdoors" value="3"><label>Not to cats.</label><br>
+               <input type="radio" name="outdoors" value="4"><label>Nope.</label>
+            </div> -->
+            <div class="cls11">
+              <form id = "Q11" class="Question" action="">
+                <p class="h2">&nbsp;<br>DID YOU KNOW THAT SOME PARROTS CAN LIVE 60-100 YEARS OLD?</p><br/>
+               <input type="radio" name="lifespan" value="4"><label>Sign me up.</u></label><br>
+               <input type="radio" name="lifespan" value="3"><label>I think 30 years is my max.</label><br>
+               <input type="radio" name="lifespan" value="2"><label>My commitement efforts get exhausted by 15 years or so.</label><br>
+               <input type="radio" name="lifespan" value="1"><label>I don't even want to live that long.</label>
+              </form>
+            </div> 
+            <div class="cls12">
+              <form id = "Q12" class="Question" action="">
+                <p class="h2">&nbsp;<br>DO YOU HAVE KIDS?<br>&nbsp;</p><br/>
+               <input type="radio" name="child-friendly" value="1"><label>Yeah, like 10.</label><br>
+               <input type="radio" name="child-friendly" value="2"><label>Yes, but they're afraid of most animals.</label><br>
+               <input type="radio" name="child-friendly" value="3"><label>Yes, they're good with animals.</label><br>
+               <input type="radio" name="child-friendly" value="4"><label>No.</label>
+              </form>
+            </div>
+            <div class="cls13">
+              <form id = "Q13" class="Question" action="">
+                <p class="h2">&nbsp;<br>DOES A $200+ YEARLY STANDARD CHECK-UP SOUND EXPENSIVE TO YOU?</p><br/>
+               <input type="radio" name="affordable" value="4"><label>Yes.</label><br>
+               <input type="radio" name="affordable" value="3"><label>Sort of.</label><br>
+               <input type="radio" name="affordable" value="2"><label>Not really.</label><br>
+               <input type="radio" name="affordable" value="1"><label>No, and I have way more to spare than that.</label>
+              </form>
+            </div>  
+            <div class="cls14">
+              <form id = "Q14" class="Question" action="">
+                <p class="h2">&nbsp;<br>WHICH OF THESE SOUNDS DO YOU LIKE THE MOST?<br>&nbsp;</p><br/>
+               <input type="radio" name="sounds" value="4"><label><u>A loud scream</u></label><br>
+               <input type="radio" name="sounds" value="3"><label>Woof</label><br>
+               <input type="radio" name="sounds" value="2"><label>Meow</label><br>
+               <input type="radio" name="sounds" value="1"><label>Silence</label>
+              </form>
+            </div> 
+            <div class="cls15">   
+             <form action="">
+              <label id="enter-zip">ENTER ZIP CODE</label>
+              <input type="number" name="zip" id="zipcode"><br />
+              <button type="button" id="show-match">SHOW ME MY MATCH!</button>
+             </form>
+
+               <!--error modal-->
+              <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">OOPS!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Please enter a valid zip-code.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+              </div>
+              </div><!--end error modal-->
+
+
+            </div>
+         </div>
+                           
+            <ul class="pager">
+              <li class="previous"><a href="#">&laquo;</a></li>
+              <li class="next"><a href="#">&raquo;</a></li>
+            </ul>
+
+      </div><!--Row 3 end-->
+
+      <div class="row"><!--ROW 4 begin-->
+        <div class ="col-md-1" id="blank-space2">
+      
+        </div>
+
+      </div><!--ROW 4 end-->
+
+      <div class="row"><!--ROW 5 begin-->
+        <div class="col-md-12" id="results">
+        <p class=h3>Your results content</p>
+        </div>
+      </div><!--ROW 5 end-->
+
+<!-- Compiled and minified JavaScript for Materialize-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+
+ <!-- Links to our javacript files -->
+  <script type="text/javascript" src="./assets/javascript/app.js"></script>
+  <script type="text/javascript" src="./assets/javascript/petfinder.js"></script>
+  <script type="text/javascript" src="./assets/javascript/compare.js"></script>
+</body>
+</html>

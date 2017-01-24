@@ -29,10 +29,12 @@
 	word-spacing: 0.1em;
 }
 
+/*using these conditions to center things*/
 .container {
 	margin: 0px;
 	width: 100%;
 }
+
 header {
 	height: 525px;
 	width: 600px;
@@ -52,16 +54,63 @@ header {
 	padding: 0px;
 }
 
+#blank-space {
+	height: 1000px;
+}
+
 #quiz {
 	height: 500px;
-	width: 900px;
+	width: 770px;
 	margin: 0 auto;
 }
 
+.Question {
+	height: 300px;
+}
+
+.cls15 {
+	height: 300px;
+}
+
+label {
+	font-size: 22px;
+	word-spacing: 0.1em;
+	padding: 5px;
+	font-family: "Ubuntu";
+	color: #222;
+	font-weight: normal;
+}
+
+.h2 {
+	font-size: 28px;
+	word-spacing: 0.1em;
+	font-family: "Raleway";
+	background-color: #333;
+	color: white;
+	margin-bottom: 0px;
+}
+
+/*p {
+	font-size: 14px;
+	background-color: #333;
+	color: white;
+	margin: 0;
+	padding: 2.5px;
+}*/
+
+p {
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 0px;
+}
+
+/*educational note: in bootstrap, ul. + li a needed to be added here to access the ability to change the font color of the pager buttons*/
 ul.pager li a {
 	color: #222;
 	border-color: #222;
 }
+
 
 #results {
 	list-style: none;	
@@ -70,6 +119,35 @@ ul.pager li a {
 .panel {
 	font-family: "Ubuntu";
 }
+
+#enter-zip  {
+	font-size: 12px;
+	letter-spacing: 0.2em;
+}
+
+#show-match {
+	font-size: 45px;
+/*	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);*/
+	background-color: #333;
+	color: white;
+	font-family: "Ubuntu";
+	letter-spacing: 0.1em;
+	border: 3px solid orange;
+	padding: 0px;
+	height: 175px;
+	width: 400px;
+	word-wrap: break-word
+}
+
+#blank-space2 {
+	height: 1000px;
+}
+
+
 
 .adoptee-info{
 	clear:both;
