@@ -1,3 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Indie+Flower|Oswald|Rock+Salt|Ubuntu|Raleway');
+
+
 * {
 	box-sizing: border-box;
+	text-align: center;
+}
+
+.center {
+	margin: auto;
+	width: 50%;
+	
+}
+
+#questM {
+	font-size: 475px;
+	font-family: "Amatic SC";
+	margin: 0 auto;
+	height: 450px;
+	line-height: 0.9em;
+}
+
+.h1 {
+	margin: 0px;
+	margin-bottom: 10px;
+	font-size: 35px;
+	font-family: "Raleway";
+	font-weight: bolder;
+	word-spacing: 0.1em;
+}
+
+/*using these conditions to center things*/
+.container {
+	margin: 0px;
+	width: 100%;
+}
+
+header {
+	height: 525px;
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.btn-lg {
+	height: 100px;
+	width: 300px;
+	font-size: 65px;
+	background-color: #222;
+	color: white;
+	font-family: "Ubuntu";
+	letter-spacing: 0.2em;
+	border: 3px solid orange;
+	padding: 0px;
+}
+
+#blank-space {
+	height: 1000px;
+}
+
+#quiz {
+	height: 500px;
+	width: 770px;
+	margin: 0 auto;
+}
+
+.Question {
+	height: 300px;
+}
+
+.cls15 {
+	height: 300px;
+}
+
+label {
+	font-size: 22px;
+	word-spacing: 0.1em;
+	padding: 5px;
+	font-family: "Ubuntu";
+	color: #222;
+	font-weight: normal;
+}
+
+.h2 {
+	font-size: 28px;
+	word-spacing: 0.1em;
+	font-family: "Raleway";
+	background-color: #333;
+	color: white;
+	margin-bottom: 0px;
+}
+
+/*p {
+	font-size: 14px;
+	background-color: #333;
+	color: white;
+	margin: 0;
+	padding: 2.5px;
+}*/
+
+p {
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 0px;
+}
+
+/*educational note: in bootstrap, ul. + li a needed to be added here to access the ability to change the font color of the pager buttons*/
+ul.pager li a {
+	color: #222;
+	border-color: #222;
+}
+
+#enter-zip  {
+	font-size: 12px;
+	letter-spacing: 0.2em;
+}
+
+#show-match {
+	font-size: 45px;
+/*	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);*/
+	background-color: #333;
+	color: white;
+	font-family: "Ubuntu";
+	letter-spacing: 0.1em;
+	border: 3px solid orange;
+	padding: 0px;
+	height: 175px;
+	width: 400px;
+	word-wrap: break-word
+}
+
+#blank-space2 {
+	height: 1000px;
+}
+
+#results {
+	width: 800px;
+	height: 500px; /*temporary!*/
+}
+
+.adoptee-info{
+	clear:both;
+	width:200px;
+	padding:5px;
+	height:230px;
+	outline: 2px solid black;
+	padding-top: 5px;
+	margin:10px;
+
+}
+
+.animal-image {
+	width: 120px;
+	height: 120px;
+	margin-left: 5px;	
+
+}
+
+#adoptee-name, #adoptee-gender {
+	clear:both;
+	line-height:5px;
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
 }
