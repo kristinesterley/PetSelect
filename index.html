@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <!-- Link to the Materialize library - Compiled and minified CSS -->
+ <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> -->
+
   <!-- Link to an additional CSS file -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -179,15 +182,37 @@
               </form>
             </div> 
             <div class="cls15">   
-             <button id="submit">SHOW ME MY MATCH!</button>
+             <form action="">
+              <label id="enter-zip">ENTER ZIP CODE</label>
+              <input type="number" name="zip" id="zipcode"><br />
+              <button type="button" id="show-match">SHOW ME MY MATCH!</button>
+             </form>
+
+               <!--error modal-->
+              <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">OOPS!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Please enter a valid zip-code.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+              </div>
+              </div><!--end error modal-->
+
+
             </div>
          </div>
-<!--             <h2 class="question-number" class = "active" data-position="1">QUESTION 1</h2>
-                <form id = "Q1" class="question-number" data-position="1" action="">
-                <input type="radio" name="Q1" value="1"> an option<br>
-                <input type="radio" name="Q1" value="2"> an option<br>
-                <input type="radio" name="Q1" value="3"> an option
-              </form>   -->                            
+                           
             <ul class="pager">
               <li class="previous"><a href="#">&laquo;</a></li>
               <li class="next"><a href="#">&raquo;</a></li>
@@ -208,7 +233,8 @@
         </div>
       </div><!--ROW 5 end-->
 
-
+<!-- Compiled and minified JavaScript for Materialize-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
 
  <!-- Links to our javacript files -->
   <script type="text/javascript" src="./assets/javascript/app.js"></script>

@@ -111,13 +111,18 @@ ul.pager li a {
 	border-color: #222;
 }
 
-#submit {
+#enter-zip  {
+	font-size: 12px;
+	letter-spacing: 0.2em;
+}
+
+#show-match {
 	font-size: 45px;
-	position: relative;
+/*	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);*/
 	background-color: #333;
 	color: white;
 	font-family: "Ubuntu";
@@ -126,6 +131,7 @@ ul.pager li a {
 	padding: 0px;
 	height: 175px;
 	width: 400px;
+	word-wrap: break-word
 }
 
 #blank-space2 {

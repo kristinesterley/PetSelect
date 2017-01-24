@@ -130,13 +130,35 @@ var storeResponse = function() {
 
 storeResponse();
 
-$("#submit").on("click", function() {
-  console.log(quizResponse);
+//using regex to compare zipcode value
+function checkZip(value) {
+    return (/(^\d{5}$)|(^\d{5}-\d{4}$)/).test(value);
+};
+
+//When click show-match button, get results (so long as zipcode is validated.
+$("#show-match").on("click", function() {
+
+  zipcode = $("#zipcode").val().trim();
+    //Validate zipcode
+    if (checkZip(zipcode) === true) {
+      console.log("zip");
+      console.log(quizResponse);
+      //Scroll to results
+      $('html,body').animate({
+          scrollTop: $("#results").offset().top},
+          'slow');
+      $("#show-match").attr({
+        'data-toggle': 'n/a',
+        'data-target': 'n/a'
+      })
+    } 
+    else {
+    console.log("not valid");
+    $("#show-match").attr({ 
+      'data-toggle': 'modal', 
+      'data-target': '#myModal' 
+      });
+
+    };
 });
 
-//Scroll to results
-$("#submit").click(function() {
-    $('html,body').animate({
-        scrollTop: $("#results").offset().top},
-        'slow');
-});
