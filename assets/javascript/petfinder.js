@@ -2,7 +2,8 @@
 
 function createPanelDiv(name) {
     var newDiv = '<div class = "panel panel-default" id="adoptees">' +
-        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4><img src="./assets/images/sun.png" id="icon"></div>'+
+        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4>'+
+        '<img src="./assets/images/sun.png" id="icon">My sunshine doesnt come from the skies, it comes from the love in my dogs eyes. -Author Unknown</div>'+
         '<div class = "panel-body" id="petfinderInfo">'+           
         '</div>'+
         '</div>';
@@ -54,7 +55,7 @@ function displayShelter(name,city,state,email,phone){
 
 function getShelters(zCode) {
 
-    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=4' + '&location=' + zCode;
+    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=20' + '&location=' + zCode;
     var shelterName = "";
     var shelterCity = "";
     var shelterState = "";
