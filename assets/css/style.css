@@ -63,6 +63,10 @@ ul.pager li a {
 	border-color: #222;
 }
 
+#results {
+	list-style: none;	
+}
+
 .panel {
 	font-family: "Ubuntu";
 }
@@ -102,10 +106,15 @@ img {
 .btn-petfinder, .panel {
 	border-radius: 0px;
 }
+
+.btn-petfinder {
+	background-color:#66bb6a;
+}
 .btn-select {
 	font-family: "Ubuntu";
 	margin: 5px;
 	min-width: 200px;
+	background-color:#66bb6a;
 }
 #icon {
 	width:25px;
