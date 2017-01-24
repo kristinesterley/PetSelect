@@ -68,46 +68,51 @@ function getShelters(zCode) {
         url : urlShelter+'&callback=?' ,
         dataType: 'json',
         success : function(data) {  
-            console.log("shelter data");
-            console.log(data);
+
 
             var petfinder = data.petfinder;
-            for (var i=0;i<petfinder.shelters.shelter.length;i++){
-                var thisShelter = petfinder.shelters.shelter[i];
-                if (thisShelter.name){
-                    shelterName = thisShelter.name['$t'];
-                }
-                else {
-                    shelterName = "Unknown";
-                }
-                if (thisShelter.city){
-                    shelterCity = thisShelter.city['$t'];
-                }
-                else {
-                    shelterCity = "Unknown";
-                }
-                if (thisShelter.state){
-                    shelterState = thisShelter.state['$t'];
-                }
-                else {
-                    shelterState = "Unknown";
-                }
-                if (thisShelter.email){
-                    shelterEmail = thisShelter.email['$t'];
-                }
-                else {
-                    shelterEmail = "Unknown";
-                } 
-                if (thisShelter.phone){
-                    shelterPhone = thisShelter.phone['$t'];
-                }
-                else {
-                    shelterEmail = "";
-                } 
+            if (petfinder.shelters){
+                for (var i=0;i<petfinder.shelters.shelter.length;i++){
+                    var thisShelter = petfinder.shelters.shelter[i];
+                    if (thisShelter.name){
+                        shelterName = thisShelter.name['$t'];
+                    }
+                    else {
+                        shelterName = "Unknown";
+                    }
+                    if (thisShelter.city){
+                        shelterCity = thisShelter.city['$t'];
+                    }
+                    else {
+                        shelterCity = "Unknown";
+                    }
+                    if (thisShelter.state){
+                        shelterState = thisShelter.state['$t'];
+                    }
+                    else {
+                        shelterState = "Unknown";
+                    }
+                    if (thisShelter.email){
+                        shelterEmail = thisShelter.email['$t'];
+                    }
+                    else {
+                        shelterEmail = "Unknown";
+                    } 
+                    if (thisShelter.phone){
+                        shelterPhone = thisShelter.phone['$t'];
+                    }
+                    else {
+                        shelterEmail = "";
+                    } 
 
-                displayShelter(shelterName, shelterCity, shelterState, shelterEmail, shelterPhone);       
+                    displayShelter(shelterName, shelterCity, shelterState, shelterEmail, shelterPhone);       
 
-            } 
+                } // end for
+            } //end if
+            else {
+                newDiv = "None found for zip code " + zCode;
+                $("#shelter-list").append(newDiv);
+            }    
         }, // end success
         error : function(request,error)
         {
@@ -135,7 +140,6 @@ function buildPetUrl(obj){
     }
         
     urlBuild = urlBuild +'&location='+obj.zipCode;
-    console.log(urlBuild);
     return urlBuild;
 }//end buildPetUrl
 
@@ -158,50 +162,55 @@ function findPet(obj){
             var id="";
 
             var petfinder = data.petfinder;
+            if (petfinder.pets){
 
-            for (var i=0;i<petfinder.pets.pet.length;i++){
-                var thisPet = petfinder.pets.pet[i];
-                console.log(thisPet.name['$t']);
+                for (var i=0;i<petfinder.pets.pet.length;i++){
+                    var thisPet = petfinder.pets.pet[i];
 
-                if (thisPet.media && thisPet.media.photos){
-                    if (thisPet.media.photos.photo[3]){
-                        image = thisPet.media.photos.photo[3]['$t'];
+                    if (thisPet.media && thisPet.media.photos){
+                        if (thisPet.media.photos.photo[3]){
+                            image = thisPet.media.photos.photo[3]['$t'];
+                        }    
+                        else if (thisPet.media.photos.photo[2]) {
+                            image = thisPet.media.photos.photo[2]['$t'];
+                        } 
+                        else if (thisPet.media.photos.photo[1]){
+                            image = thisPet.media.photos.photo[1]['$t'];
+                        } 
+                        else if (thisPet.media.photos.photo[0]){
+                            image = thisPet.media.photos.photo[0]['$t'];
+                        }                     
+                    }
+                    else {                    
+                        image = "./assets/images/no-image-available.png"
+                    }
+
+                    if(thisPet.id){
+                        id=thisPet.id['$t'];
                     }    
-                    else if (thisPet.media.photos.photo[2]) {
-                        image = thisPet.media.photos.photo[2]['$t'];
-                    } 
-                    else if (thisPet.media.photos.photo[1]){
-                        image = thisPet.media.photos.photo[1]['$t'];
-                    } 
-                    else if (thisPet.media.photos.photo[0]){
-                        image = thisPet.media.photos.photo[0]['$t'];
-                    }                     
-                }
-                else {                    
-                    image = "./assets/images/no-image-available.png"
-                }
+                    else {
+                        id="";
+                    }
+                    if (thisPet.name){
+                        name=thisPet.name['$t'];
+                        name = name.substring(0,36);
+                    }
+                    else {
+                        name = "Unknown"
+                    }
+                    if (thisPet.sex){
+                        gender=thisPet.sex['$t'];
+                    }
+                    else {
+                        gender = "Unknown"
+                    }           
+                    $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
+                }//end for
+            } //end if
+            else {
 
-                if(thisPet.id){
-                    id=thisPet.id['$t'];
-                }    
-                else {
-                    id="";
-                }
-                if (thisPet.name){
-                    name=thisPet.name['$t'];
-                    name = name.substring(0,36);
-                }
-                else {
-                    name = "Unknown"
-                }
-                if (thisPet.sex){
-                    gender=thisPet.sex['$t'];
-                }
-                else {
-                    gender = "Unknown"
-                }           
-                $('#petfinderInfo').append(createAdopteeDiv(id,name,image,gender));
-            }//end for
+                $('#petfinderInfo').append("None found.");
+            }
         },
         error : function(request,error)
         {
