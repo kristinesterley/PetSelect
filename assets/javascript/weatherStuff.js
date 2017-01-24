@@ -1,4 +1,4 @@
-var zipCode = 27510;
+var zipCode = 55401;
 var queryURL = "http://api.wunderground.com/api/c68ecd67f5bf0bc5/conditions/q/" + zipCode + ".json";
 
 $.ajax({ url: queryURL, method: "GET" }).done(function(response){
@@ -10,6 +10,9 @@ $.ajax({ url: queryURL, method: "GET" }).done(function(response){
 	}
 	else if(/Rain/.test(weather)){
 		$("#weather").append("It's raining in " + city + "! Bring an animal in from the rain!");
+	}
+	else if(/Fog/.test(weather)){
+		$("#weather").append("It's foggy in "+ city+"! An animal will brighten your day!")
 	}
 	else{
 		$("#weather").append("The weather in "+city+" is " +weather.toLowerCase()+"! It's a good day to adopt a pet!");
