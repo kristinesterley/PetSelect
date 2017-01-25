@@ -41,8 +41,6 @@ if(localStorage["zipcode"]){
 }
 
 
-var zipcode = "";
-
 //Scroll to quiz!
 $("#start").click(function() {
     $('html,body').animate({
@@ -184,7 +182,7 @@ $("#show-match").on("click", function() {
       //console.log(quizResponse);
 
       //Scroll to results
-      $('html,body').animate({
+      $('html.body').animate({
           scrollTop: $("#results").offset().top},
           'slow');
       $("#show-match").attr({
@@ -195,10 +193,10 @@ $("#show-match").on("click", function() {
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
 
-      };
+      
       getResults(quizResponse);
 
-    } 
+    }
     else {
     console.log("not valid");
     $("#show-match").attr({ 
