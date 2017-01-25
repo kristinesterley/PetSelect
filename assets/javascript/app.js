@@ -12,17 +12,34 @@ $(".divs > div").each(function(e) {
             $(this).hide();
     });
 
+var counter = 0
+
     $(".next").click(function(){
+        counter ++
         if ($(".divs div:visible").next().length != 0){
             $(".divs div:visible").next().show().prev().hide();
             $("ul.pager li:first-child a").css('color', '#222')
-            
+            console.log("divs visible " + $(".divs div:visible").next().length);
+            console.log("divs: " + $(".divs").length);
 
-        }
+
+
+        };
+
+        if (counter === 13) {
+        $(".next").hide();
+        console.log("hi");
+    }
+
         return false;
     });
 
+
     $(".previous").click(function(){
+        counter --
+        if(counter < 13) {
+            $(".next").show();
+        }
         if ($(".divs div:visible").prev().length != 0){
             console.log("There are still elements");
             $(".divs div:visible")
@@ -108,7 +125,7 @@ var storeResponse = function() {
 
   $('#Q11 input').on('change', function() {
    lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
-   quizResponse.lifespan = parseInt(lifespan);
+   quizResponse.lifeSpan = parseInt(lifespan);
   });
 
   $('#Q12 input').on('change', function() {
