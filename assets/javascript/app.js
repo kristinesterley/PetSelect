@@ -11,7 +11,7 @@ if(localStorage["quizResponse"]){
   $("input[name=coat]").val([quizResponse.coat]);
   $("input[name=fitness]").val([quizResponse.fitness]);
   $("input[name=intelligence]").val([quizResponse.intelligence]);
-  $("input[name=lifespan]").val([quizResponse.lifespan]);
+  $("input[name=lifespan]").val([quizResponse.lifeSpan]);
   $("input[name=noise]").val([quizResponse.noise]);
   $("input[name=outdoor]").val([quizResponse.outdoor]);
   $("input[name=physicalSpace]").val([quizResponse.physicalSpace]);
@@ -27,7 +27,7 @@ else{
   coat: 0, 
   fitness: 0,
   intelligence: 0,
-  lifespan: 0,
+  lifeSpan: 0,
   noise: 0,
   outdoor: 0,
   physicalSpace: 0,
@@ -137,8 +137,8 @@ var storeResponse = function() {
   });
 
   $('#Q11 input').on('change', function() {
-   lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
-   quizResponse.lifeSpan = parseInt(lifespan);
+   lifeSpan = $('input[name=lifespan]:checked', '#Q11').val(); 
+   quizResponse.lifeSpan = parseInt(lifeSpan);
   });
 
   $('#Q12 input').on('change', function() {
