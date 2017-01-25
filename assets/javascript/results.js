@@ -90,6 +90,10 @@ function getResults(quizObject){
 
  $(document).on('click', '.btn-select', function() {
 
+ 	$('html,body').animate({
+    scrollTop: $("#printedResults").offset().top},
+    'slow');
+
  	var animalVideo = $(this).attr('data-youTubeId')
 
  	if (player){

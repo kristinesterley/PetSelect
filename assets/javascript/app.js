@@ -215,7 +215,7 @@ $("#show-match").on("click", function() {
       //console.log(quizResponse);
 
       //Scroll to results
-      $('html.body').animate({
+      $('html,body').animate({
           scrollTop: $("#results").offset().top},
           'slow');
       //disable modal
