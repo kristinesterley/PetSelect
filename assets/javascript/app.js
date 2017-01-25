@@ -155,15 +155,8 @@ var storeResponse = function() {
   });
 
   $('#Q10 input').on('change', function() {
-
-
    lifeSpan = $('input[name=lifeSpan]:checked', '#Q10').val(); 
    quizResponse.lifeSpan = parseInt(lifeSpan);
-
-// =======
-//    lifeSpan = $('input[name=lifeSpan]:checked', '#Q11').val(); 
-//    quizResponse.lifeSpan = parseInt(lifeSpan);
-// >>>>>>> ilona-branch
   });
 
   $('#Q11 input').on('change', function() {
@@ -198,16 +191,14 @@ $("#show-match").on("click", function() {
   //storeResponse();
 
 
-  zipcode = $("#zipcode").val().trim();
+    zipcode = $("#zipcode").val().trim();
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
     //Validate zipcode
     if (checkZip(zipcode) === true) {
-      console.log("zip");
-      //console.log(quizResponse);
 
       //Scroll to results
-      $('html.body').animate({
+      $('html,body').animate({
           scrollTop: $("#results").offset().top},
           'slow');
       $("#show-match").attr({
@@ -217,10 +208,10 @@ $("#show-match").on("click", function() {
       });
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
-      console.log("quizResponse object");
-      console.log(quizResponse);
-      
+      // get matches for pets based on users quiz answers      
       getResults(quizResponse);
+      // clear out previous results if any
+
 
     }
     else {

@@ -190,6 +190,9 @@ img {
 	width:25px;
 	height:25px;
 }
+/*#shelters {
+	float:right;
+}*/
 
 #shelter-list {
 	overflow:scroll;
