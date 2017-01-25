@@ -38,6 +38,7 @@ else{
 if(localStorage["zipcode"]){
   zipcode = localStorage["zipcode"];
   console.log(zipcode);
+  $("#zipcode").val(zipcode);
 }
 
 
