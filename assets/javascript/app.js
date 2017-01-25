@@ -1,3 +1,4 @@
+
 //Check if stuff is in local storage, get it if it is
 if(localStorage["quizResponse"]){
   quizResponse = JSON.parse(localStorage["quizResponse"]);
@@ -38,6 +39,9 @@ if(localStorage["zipcode"]){
   zipcode = localStorage["zipcode"];
   console.log(zipcode);
 }
+
+
+var zipcode = "";
 
 //Scroll to quiz!
 $("#start").click(function() {
@@ -136,7 +140,7 @@ var storeResponse = function() {
 
   $('#Q11 input').on('change', function() {
    lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
-   quizResponse.lifespan = parseInt(lifespan);
+   quizResponse.lifeSpan = parseInt(lifespan);
   });
 
   $('#Q12 input').on('change', function() {
@@ -170,6 +174,7 @@ function checkZip(value) {
 $("#show-match").on("click", function() {
   //storeResponse();
 
+
   zipcode = $("#zipcode").val().trim();
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
@@ -177,6 +182,7 @@ $("#show-match").on("click", function() {
     if (checkZip(zipcode) === true) {
       console.log("zip");
       //console.log(quizResponse);
+
       //Scroll to results
       $('html,body').animate({
           scrollTop: $("#results").offset().top},
@@ -184,9 +190,14 @@ $("#show-match").on("click", function() {
       $("#show-match").attr({
         'data-toggle': 'n/a',
         'data-target': 'n/a'
+
       });
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
+
+      };
+      getResults(quizResponse);
+
     } 
     else {
     console.log("not valid");
