@@ -50,7 +50,7 @@ header {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.2em;
-	border: 3px solid orange;
+	border: 3px solid green;
 	padding: 0px;
 }
 
@@ -90,14 +90,6 @@ label {
 	margin-bottom: 0px;
 }
 
-/*p {
-	font-size: 14px;
-	background-color: #333;
-	color: white;
-	margin: 0;
-	padding: 2.5px;
-}*/
-
 p {
 	font-size: 14px;
 	margin: 0px;
@@ -112,7 +104,7 @@ ul.pager li a {
 }
 
 #enter-zip  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing: 0.2em;
 }
 
@@ -127,7 +119,7 @@ ul.pager li a {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.1em;
-	border: 3px solid orange;
+	border: 3px solid green;
 	padding: 0px;
 	height: 175px;
 	width: 400px;
