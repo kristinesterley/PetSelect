@@ -6,15 +6,15 @@ if(localStorage["quizResponse"]){
   //select the corresponding radio buttons
   $("input[name=affection]").val([quizResponse.affection]);
   $("input[name=affordable]").val([quizResponse.affordable]);
-  $("input[name=childFriendly]").val([quizResponse.childFriendly]);
+  $("input[name=child-friendly]").val([quizResponse.childFriendly]);
   $("input[name=cleanliness]").val([quizResponse.cleanliness]);
   $("input[name=coat]").val([quizResponse.coat]);
   $("input[name=fitness]").val([quizResponse.fitness]);
   $("input[name=intelligence]").val([quizResponse.intelligence]);
-  $("input[name=lifespan]").val([quizResponse.lifeSpan]);
+  $("input[name=lifeSpan]").val([quizResponse.lifeSpan]);
   $("input[name=noise]").val([quizResponse.noise]);
   $("input[name=outdoor]").val([quizResponse.outdoor]);
-  $("input[name=physicalSpace]").val([quizResponse.physicalSpace]);
+  $("input[name=physical-space]").val([quizResponse.physicalSpace]);
   $("input[name=size]").val([quizResponse.size]);
   $("input[name=sounds]").val([quizResponse.sounds]);
 }
@@ -137,7 +137,7 @@ var storeResponse = function() {
   });
 
   $('#Q11 input').on('change', function() {
-   lifeSpan = $('input[name=lifespan]:checked', '#Q11').val(); 
+   lifeSpan = $('input[name=lifeSpan]:checked', '#Q11').val(); 
    quizResponse.lifeSpan = parseInt(lifeSpan);
   });
 
