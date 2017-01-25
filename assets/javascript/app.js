@@ -1,3 +1,47 @@
+
+//Check if stuff is in local storage, get it if it is
+if(localStorage["quizResponse"]){
+  quizResponse = JSON.parse(localStorage["quizResponse"]);
+  console.log(quizResponse);
+  //select the corresponding radio buttons
+  $("input[name=affection]").val([quizResponse.affection]);
+  $("input[name=affordable]").val([quizResponse.affordable]);
+  $("input[name=child-friendly]").val([quizResponse.childFriendly]);
+  $("input[name=cleanliness]").val([quizResponse.cleanliness]);
+  $("input[name=coat]").val([quizResponse.coat]);
+  $("input[name=fitness]").val([quizResponse.fitness]);
+  $("input[name=intelligence]").val([quizResponse.intelligence]);
+  $("input[name=lifeSpan]").val([quizResponse.lifeSpan]);
+  $("input[name=noise]").val([quizResponse.noise]);
+  $("input[name=outdoor]").val([quizResponse.outdoor]);
+  $("input[name=physical-space]").val([quizResponse.physicalSpace]);
+  $("input[name=size]").val([quizResponse.size]);
+  $("input[name=sounds]").val([quizResponse.sounds]);
+}
+else{
+  var quizResponse = {
+  affection: 0,
+  affordable: 0,
+  childFriendly: 0,
+  cleanliness: 0,
+  coat: 0, 
+  fitness: 0,
+  intelligence: 0,
+  lifeSpan: 0,
+  noise: 0,
+  outdoor: 0,
+  physicalSpace: 0,
+  size: 0,
+  sounds: 0
+}
+}
+if(localStorage["zipcode"]){
+  zipcode = localStorage["zipcode"];
+  console.log(zipcode);
+  $("#zipcode").val(zipcode);
+}
+
+
 //Scroll to quiz!
 $("#start").click(function() {
     $('html,body').animate({
@@ -76,11 +120,13 @@ var quizResponse = {
   sounds: 0
 }
 
+
 var storeResponse = function() {
   $('#Q1 input').on('change', function() {
     //take input from selected radio button and store in variable to be converted into an integer.
    outdoor = $('input[name=outdoor]:checked', '#Q1').val(); 
    quizResponse.outdoor = parseInt(outdoor);
+   console.log("outdoor " + outdoor);
   });
 
   $('#Q2 input').on('change', function() {
@@ -142,6 +188,9 @@ var storeResponse = function() {
    sounds = $('input[name=sounds]:checked', '#Q13').val(); 
    quizResponse.sounds = parseInt(sounds);
   });
+//add responses to local storage
+
+console.log(quizResponse);
 
 };
 
@@ -154,22 +203,35 @@ function checkZip(value) {
 
 //When click show-match button, get results (so long as zipcode is validated.
 $("#show-match").on("click", function() {
+  //storeResponse();
+
 
   zipcode = $("#zipcode").val().trim();
+    //store results to local storage
+    localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
     //Validate zipcode
     if (checkZip(zipcode) === true) {
       console.log("zip");
-      console.log(quizResponse);
+      //console.log(quizResponse);
+
       //Scroll to results
-      $('html,body').animate({
+      $('html.body').animate({
           scrollTop: $("#results").offset().top},
           'slow');
       //disable modal
       $("#show-match").attr({
         'data-toggle': 'n/a',
         'data-target': 'n/a'
-      })
-    } 
+
+      });
+      //store zip code in local storage
+      localStorage.setItem("zipcode", zipcode);
+      console.log("quizResponse object");
+      console.log(quizResponse);
+      
+      getResults(quizResponse);
+
+    }
     else {
     console.log("not valid");
     $("#show-match").attr({ 

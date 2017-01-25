@@ -103,6 +103,15 @@ ul.pager li a {
 	border-color: #222;
 }
 
+
+#results {
+	list-style: none;	
+}
+
+.panel {
+	font-family: "Ubuntu";
+}
+
 #enter-zip  {
 	font-size: 18px;
 	letter-spacing: 0.2em;
@@ -130,27 +139,28 @@ ul.pager li a {
 	height: 1000px;
 }
 
-#results {
-	width: 800px;
-	height: 500px; /*temporary!*/
-}
+
 
 .adoptee-info{
 	clear:both;
+	font-family: "Ubuntu";
 	width:200px;
 	padding:5px;
-	height:230px;
+	height:235px;
 	outline: 2px solid black;
-	padding-top: 5px;
 	margin:10px;
+	background-color: white;
 
 }
 
-.animal-image {
+#adoptees{
+	background: url("../images/blu_stripes.png");
+}
+
+.adoptee-image {
 	width: 120px;
 	height: 120px;
-	margin-left: 5px;	
-
+	margin-top: 10px;
 }
 
 #adoptee-name, #adoptee-gender {
@@ -160,4 +170,28 @@ ul.pager li a {
 img {
 	max-width: 100%;
 	max-height: 100%;
+}
+
+
+.btn-petfinder, .panel {
+	border-radius: 0px;
+}
+
+.btn-petfinder {
+	background-color:#66bb6a;
+}
+.btn-select {
+	font-family: "Ubuntu";
+	margin: 5px;
+	min-width: 200px;
+	background-color:#66bb6a;
+}
+#icon {
+	width:25px;
+	height:25px;
+}
+
+#shelter-list {
+	overflow:scroll;
+	height:350px;
 }
