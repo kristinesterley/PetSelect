@@ -206,13 +206,11 @@ $("#show-match").on("click", function() {
   //storeResponse();
 
 
-  zipcode = $("#zipcode").val().trim();
+    zipcode = $("#zipcode").val().trim();
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
     //Validate zipcode
     if (checkZip(zipcode) === true) {
-      console.log("zip");
-      //console.log(quizResponse);
 
       //Scroll to results
       $('html,body').animate({
@@ -226,10 +224,10 @@ $("#show-match").on("click", function() {
       });
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
-      console.log("quizResponse object");
-      console.log(quizResponse);
-      
+      // get matches for pets based on users quiz answers      
       getResults(quizResponse);
+      // clear out previous results if any
+
 
     }
     else {

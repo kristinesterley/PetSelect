@@ -1,23 +1,7 @@
 
 
 var buttonWidth = 500;
-
-var testObject ={
-	affection: 3,
-	affordable: 2,
-	childFriendly: 2,
-	cleanliness: 2,
-	coat: 3,
-	fitness: 1,
-	intelligence: 1,
-	lifeSpan: 2,
-	noise: 1,
-	outdoor: 1,
-	physicalSpace: 2,
-	size: 2,
-	sounds: 1
-}
-
+var matches=[];
 var searchObject = {
     animal: "",
     breed: "",
@@ -37,7 +21,7 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 
-var matches=[];
+
 
 function compare(obj, animals){
 	matches = [];
@@ -72,20 +56,14 @@ function getResults(quizObject){
 				' data-searchTerm='+ matches[i].searchTerm + 
 				' data-searchSize=' + matches[i].searchSize +
 				'> <img src="./assets/images/'+matches[i].icon+'" id="icon">'+ ' '+
-				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button></li>';  
-
-
-		
+				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button></li>';  	
 		
 		$("#results").append(newButton);
-		// $("#results").append("<br><br>");
+
 	} //end for
-
-
-		$("#results").append("<br><br>");
-	});
-
- }
+	$("#results").append("<br><br>");
+	}); //end query.once
+ }//end getResults
 
 
  $(document).on('click', '.btn-select', function() {

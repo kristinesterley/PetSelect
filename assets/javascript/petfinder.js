@@ -1,13 +1,54 @@
 
 
 function createPanelDiv(name) {
-    var newDiv = '<div class = "panel panel-default" id="adoptees">' +
-        '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4>'+
-        '<img src="./assets/images/sun.png" id="icon">My sunshine doesnt come from the skies, it comes from the love in my dogs eyes. -Author Unknown</div>'+
-        '<div class = "panel-body" id="petfinderInfo">'+           
-        '</div>'+
-        '</div>';
-        $("#petPix").append(newDiv); 
+    //first get weather information for the panel header
+
+    
+    var queryURL = "http://api.wunderground.com/api/c68ecd67f5bf0bc5/conditions/q/" + zipcode + ".json";
+
+    console.log(queryURL);
+
+    $.ajax({ url: queryURL, method: "GET" }).done(function(response){
+
+        var weatherMessage = "Everyday is a great day to adopt a pet!";
+        var weatherIcon = "./assets/images/sun.png";
+
+        if (response.current_observation){
+            var weatherData = response.current_observation;
+            var weatherIcon = weatherData.icon_url;    
+            var city = weatherData.display_location.city;
+            var weather = weatherData.weather;
+            
+            if(weatherData.temp_f <= 32){
+                weatherMessage = "It's "+ weatherData.temperature_string+ " in "+ city+"! Bring an animal in from the cold!";
+            }
+            else if(/Rain/.test(weather)){
+                weatherMessage = "It's raining in " + city + "! Bring an animal in from the rain!";
+            }
+            else if(/Fog/.test(weather)){
+                weatherMessage = "It's foggy in "+ city+"! An animal will brighten your day!";
+            }
+            else if(weather =="Overcast"){
+                weatherMessage = "It's overcast in "+city+"! An animal will brighten your day!";
+            }
+            else{
+                weatherMessage = "The weather in "+city+" is " +weather.toLowerCase()+"! It's a good day to adopt a pet!";
+            }
+
+        }//end if
+        
+        var newDiv = '<div class = "panel panel-default" id="adoptees">' +
+            '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4>'+
+            '<img src="'+weatherIcon+'" id="icon">'+ weatherMessage + '</div>'+
+            '<div class = "panel-body" id="petfinderInfo">'+           
+            '</div>'+
+            '</div>';
+            $("#petPix").append(newDiv); 
+
+    });
+
+
+
 }
 
 
