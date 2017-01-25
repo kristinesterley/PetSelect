@@ -14,6 +14,9 @@ $.ajax({ url: queryURL, method: "GET" }).done(function(response){
 	else if(/Fog/.test(weather)){
 		$("#weather").append("It's foggy in "+ city+"! An animal will brighten your day!")
 	}
+	else if(weather =="Overcast"){
+		$("#weather").append("It's overcast in "+city+"! An animal will brighten your day!")
+	}
 	else{
 		$("#weather").append("The weather in "+city+" is " +weather.toLowerCase()+"! It's a good day to adopt a pet!");
 	}
