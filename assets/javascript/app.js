@@ -6,7 +6,7 @@ if(localStorage["quizResponse"]){
   //select the corresponding radio buttons
   $("input[name=affection]").val([quizResponse.affection]);
   $("input[name=affordable]").val([quizResponse.affordable]);
-  $("input[name=childFriendly]").val([quizResponse.childFriendly]);
+  $("input[name=child-friendly]").val([quizResponse.childFriendly]);
   $("input[name=cleanliness]").val([quizResponse.cleanliness]);
   $("input[name=coat]").val([quizResponse.coat]);
   $("input[name=fitness]").val([quizResponse.fitness]);
@@ -14,7 +14,7 @@ if(localStorage["quizResponse"]){
   $("input[name=lifeSpan]").val([quizResponse.lifeSpan]);
   $("input[name=noise]").val([quizResponse.noise]);
   $("input[name=outdoor]").val([quizResponse.outdoor]);
-  $("input[name=physicalSpace]").val([quizResponse.physicalSpace]);
+  $("input[name=physical-space]").val([quizResponse.physicalSpace]);
   $("input[name=size]").val([quizResponse.size]);
   $("input[name=sounds]").val([quizResponse.sounds]);
 }
@@ -38,6 +38,7 @@ else{
 if(localStorage["zipcode"]){
   zipcode = localStorage["zipcode"];
   console.log(zipcode);
+  $("#zipcode").val(zipcode);
 }
 
 
@@ -153,25 +154,30 @@ var storeResponse = function() {
    quizResponse.physicalSpace = parseInt(physicalSpace);
   });
 
-  $('#Q11 input').on('change', function() {
+  $('#Q10 input').on('change', function() {
 
-   lifeSpan = $('input[name=lifeSpan]:checked', '#Q11').val(); 
+
+   lifeSpan = $('input[name=lifeSpan]:checked', '#Q10').val(); 
    quizResponse.lifeSpan = parseInt(lifeSpan);
 
+// =======
+//    lifeSpan = $('input[name=lifeSpan]:checked', '#Q11').val(); 
+//    quizResponse.lifeSpan = parseInt(lifeSpan);
+// >>>>>>> ilona-branch
   });
 
-  $('#Q12 input').on('change', function() {
-   childFriendly = $('input[name=child-friendly]:checked', '#Q12').val(); 
+  $('#Q11 input').on('change', function() {
+   childFriendly = $('input[name=child-friendly]:checked', '#Q11').val(); 
    quizResponse.childFriendly = parseInt(childFriendly);
   });
 
-  $('#Q13 input').on('change', function() {
-   affordable = $('input[name=affordable]:checked', '#Q13').val(); 
+  $('#Q12 input').on('change', function() {
+   affordable = $('input[name=affordable]:checked', '#Q12').val(); 
    quizResponse.affordable = parseInt(affordable); 
   });
 
-  $('#Q14 input').on('change', function() {
-   sounds = $('input[name=sounds]:checked', '#Q14').val(); 
+  $('#Q13 input').on('change', function() {
+   sounds = $('input[name=sounds]:checked', '#Q13').val(); 
    quizResponse.sounds = parseInt(sounds);
   });
 //add responses to local storage
