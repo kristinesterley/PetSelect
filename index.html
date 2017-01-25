@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-with, initial-scale=1">
   <title>Title</title>
 
   <!-- Link to the jQuery Library -->
@@ -227,18 +228,45 @@
 
       </div><!--ROW 4 end-->
 
-      <div class="row"><!--ROW 5 begin-->
-        <div class="col-md-12" id="results">
-        <p class=h3>Your results content</p>
-        </div>
-      </div><!--ROW 5 end-->
+
+
+
+   <div class="container-fluid">
+    <ul id="results"></ul> <!-- div for quiz results buttons -->
+   </div>
+  <div class="container-fluid"> 
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-6"><!-- div for YouTube video player -->
+        
+          <div class="media">
+          <div class="media-left">
+          <div id="player"></div>
+          </div>
+          </div>
+
+      </div>
+      <div class="col-md-4" id="shelters">
+        <!--shelter panel goes here -->
+      </div>
+    </div>
+  </div>  
+  <br>
+  
+  <div class = "container-fluid">     
+    <div class = "row" id="petPix">
+
+    </div> <!--end row-->
+  </div>  <!-- end container  -->
 
 <!-- Compiled and minified JavaScript for Materialize-->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
  <!-- Links to our javacript files -->
   <script type="text/javascript" src="./assets/javascript/app.js"></script>
+   <script type="text/javascript" src="./assets/javascript/results.js"></script>
+    <script type="text/javascript" src="./assets/javascript/uTube.js"></script>
   <script type="text/javascript" src="./assets/javascript/petfinder.js"></script>
-  <script type="text/javascript" src="./assets/javascript/compare.js"></script>
+
 </body>
 </html>

@@ -1,5 +1,4 @@
 
-var testZip = "27516";
 
 var buttonWidth = 500;
 
@@ -23,7 +22,7 @@ var searchObject = {
     animal: "",
     breed: "",
     size: "",
-    zipCode: testZip
+    zipCode: ""
 }
 
 // Initialize Firebase
@@ -59,10 +58,13 @@ function compare(obj, animals){
 	console.log(matches);
 }
 
-var query = database.ref().orderByKey();
-query.once("value").then(function(snapshot){
 
-	compare(testObject, snapshot.val());
+function getResults(quizObject){
+	var query = database.ref().orderByKey();
+	query.once("value").then(function(snapshot){
+	console.log('quizObject');
+	console.log(quizObject);
+	compare(quizObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
 		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 				' data-youTubeId='+ 	matches[i].youTubeId+
@@ -80,8 +82,11 @@ query.once("value").then(function(snapshot){
 	} //end for
 
 
-	$("#results").append("<br><br>");
-});
+		$("#results").append("<br><br>");
+	});
+
+ }
+
 
  $(document).on('click', '.btn-select', function() {
 
@@ -96,7 +101,7 @@ query.once("value").then(function(snapshot){
 
  	$("#shelter-panel").remove();
  	createShelterDiv();
- 	getShelters(testZip);
+ 	getShelters(zipcode);
 
 
 
@@ -128,6 +133,7 @@ query.once("value").then(function(snapshot){
 	}
 		$("#petPix").empty();
 	    createPanelDiv(tempName);
+		searchObject.zipCode = zipcode;
 	    findPet(searchObject);
  });          
 

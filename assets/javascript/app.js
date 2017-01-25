@@ -1,3 +1,4 @@
+var zipcode = "";
 //Scroll to quiz!
 $("#start").click(function() {
     $('html,body').animate({
@@ -51,7 +52,7 @@ var quizResponse = {
   coat: 0, 
   fitness: 0,
   intelligence: 0,
-  lifespan: 0,
+  lifeSpan: 0,
   noise: 0,
   outdoor: 0,
   physicalSpace: 0,
@@ -108,7 +109,7 @@ var storeResponse = function() {
 
   $('#Q11 input').on('change', function() {
    lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
-   quizResponse.lifespan = parseInt(lifespan);
+   quizResponse.lifeSpan = parseInt(lifespan);
   });
 
   $('#Q12 input').on('change', function() {
@@ -138,10 +139,11 @@ function checkZip(value) {
 //When click show-match button, get results (so long as zipcode is validated.
 $("#show-match").on("click", function() {
 
-  zipcode = $("#zipcode").val().trim();
+    zipcode = $("#zipcode").val().trim();
     //Validate zipcode
     if (checkZip(zipcode) === true) {
       console.log("zip");
+      console.log(zipcode);
       console.log(quizResponse);
       //Scroll to results
       $('html,body').animate({
@@ -151,6 +153,7 @@ $("#show-match").on("click", function() {
         'data-toggle': 'n/a',
         'data-target': 'n/a'
       })
+      getResults(quizResponse);
     } 
     else {
     console.log("not valid");
