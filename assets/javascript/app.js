@@ -68,7 +68,7 @@ var quizResponse = {
   coat: 0, 
   fitness: 0,
   intelligence: 0,
-  lifespan: 0,
+  lifeSpan: 0,
   noise: 0,
   outdoor: 0,
   physicalSpace: 0,
@@ -123,23 +123,23 @@ var storeResponse = function() {
    quizResponse.physicalSpace = parseInt(physicalSpace);
   });
 
-  $('#Q11 input').on('change', function() {
-   lifespan = $('input[name=lifespan]:checked', '#Q11').val(); 
-   quizResponse.lifeSpan = parseInt(lifespan);
+  $('#Q10 input').on('change', function() {
+   lifeSpan = $('input[name=lifeSpan]:checked', '#Q10').val(); 
+   quizResponse.lifeSpan = parseInt(lifeSpan);
   });
 
-  $('#Q12 input').on('change', function() {
-   childFriendly = $('input[name=child-friendly]:checked', '#Q12').val(); 
+  $('#Q11 input').on('change', function() {
+   childFriendly = $('input[name=child-friendly]:checked', '#Q11').val(); 
    quizResponse.childFriendly = parseInt(childFriendly);
   });
 
-  $('#Q13 input').on('change', function() {
-   affordable = $('input[name=affordable]:checked', '#Q13').val(); 
+  $('#Q12 input').on('change', function() {
+   affordable = $('input[name=affordable]:checked', '#Q12').val(); 
    quizResponse.affordable = parseInt(affordable); 
   });
 
-  $('#Q14 input').on('change', function() {
-   sounds = $('input[name=sounds]:checked', '#Q14').val(); 
+  $('#Q13 input').on('change', function() {
+   sounds = $('input[name=sounds]:checked', '#Q13').val(); 
    quizResponse.sounds = parseInt(sounds);
   });
 
@@ -164,6 +164,7 @@ $("#show-match").on("click", function() {
       $('html,body').animate({
           scrollTop: $("#results").offset().top},
           'slow');
+      //disable modal
       $("#show-match").attr({
         'data-toggle': 'n/a',
         'data-target': 'n/a'
