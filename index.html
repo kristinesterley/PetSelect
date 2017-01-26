@@ -57,7 +57,9 @@
 
       </div><!--ROW 2 end-->
 
-      <div class="row"><!--ROW 3 begin-->
+      <div class="row" id="quiz-row"><!--ROW 3 begin-->
+
+        <div id="space-quiz"></div>
 
           <div class="container-fluid" id="quiz">
             <div class="divs">
@@ -184,7 +186,7 @@
              <form action="">
               <label id="enter-zip">ENTER ZIP CODE</label>
               <input type="number" name="zip" id="zipcode"><br>
-              <button type="button" id="show-match">SHOW ME MY MATCH!</button>
+              <button type="button" id="show-match">SHOW ME MY MATCHES!</button>
              </form>
              </div><!--end cls14-->
                 <ul class="pager">
@@ -194,7 +196,7 @@
         </div><!--divs end-->
 
         <!--Click this for help-->
-        <a onclick="Materialize.toast('Welcome to Pet Select! <br> Simply fill in the quiz answers by clicking on the answer that best describes you. <br>  Use the arrows to toggle through the quiz.  <br> At the end you will need to enter a valid US zipcode to see your best pet matches.  Have fun!', 1000 * 12)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+        <a onclick="Materialize.toast('Simply answer the questions by clicking on the option that best describes you. <br>  Use the arrows to toggle through the quiz.  <br> At the end you will need to enter a valid US zipcode to see your best pet matches.  <br> Have fun!', 1000 * 12)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
 
                <!--error modal-->
               <div class="modal fade" id="myModal" role="dialog">
@@ -204,7 +206,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">OOPS!</h4>
+                    <h4 class="modal-title">AWW NAH!</h4>
                   </div>
                   <div class="modal-body">
                     <p>Please enter a valid zip-code.</p>
@@ -234,10 +236,15 @@
 
 
     <div class="container-fluid">
+   
       <ul id="results"></ul> <!-- div for quiz results buttons -->
+       <a onclick="Materialize.toast('Click on your match results to view more information on your match, including: <br> *An informative video <br> *Shelters local to you <br> *Matches up for adoption nearby', 1000 * 8)"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a><br>
+
+       <a id="cant-see" onclick="Materialize.toast('You must take the quiz and enter a valid US zipcode in order to view your matches.', 1000 * 5)">Can't see matches?</a>
+
     </div>
-    <div class="container-fluid" id="printedResults"> 
-      <div class="row">
+    <div class="container-fluid"> 
+      <div class="row"  id="printedResults">
         <div class="col-md-7"><!-- div for YouTube video player -->
 
           <div class="media">

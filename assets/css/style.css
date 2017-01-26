@@ -109,11 +109,21 @@ header {
 	letter-spacing: 0.2em;
 	border: 3px solid #FFB27A;
 	padding: 0px;
-	border-radius: 25px;
 }
 
 #blank-space {
-	height: 1000px;
+	height: 500px;
+}
+
+#quiz-row {
+	background: linear-gradient(rgba(95, 96, 101, 0.85), rgba(255, 178, 122, 0.85)),
+               rgba(0,0,0,0.15) url('../images/leash.jpg') no-repeat center;
+    background-size: cover;
+    height: 800px;
+}
+
+#space-quiz {
+	height: 200px;
 }
 
 #quiz {
@@ -121,8 +131,9 @@ header {
 	width: 770px;
 	margin: 0 auto;
 	border-radius: 25px;
-	background: url("../images/blu_stripes.png");
+	background: rgba(253, 253, 253, .85);
 	border: 1px solid #333
+
 
 }
 
@@ -135,13 +146,14 @@ header {
 }
 
 label {
-	font-size: 22px;
+	font-size: 25px;
 	word-spacing: 0.1em;
 	padding: 5px;
 	font-family: "Ubuntu";
-	color: #222;
+	color: #5F5056;
 	font-weight: normal;
 }
+
 
 .h2 {
 	font-size: 28px;
@@ -152,6 +164,7 @@ label {
 	margin-bottom: 0px;
 	border-radius: 25px;
 }
+
 
 p {
 	font-size: 14px;
@@ -179,21 +192,19 @@ ul.pager li a {
 }
 
 .glyphicon-question-sign {
-	color: #646D7E;
+	color: #FAFAFA;
 	font-size: 20px;
 }
 
-#results {
-	list-style: none;	
-}
-
-.panel {
-	font-family: "Ubuntu";
-}
 
 #enter-zip  {
 	font-size: 18px;
 	letter-spacing: 0.2em;
+	color: #FDFDFD;
+}
+
+#zipcode {
+	color: #FDFDFD;
 }
 
 #show-match {
@@ -214,8 +225,46 @@ ul.pager li a {
 	word-wrap: break-word
 }
 
+.glyphicon-info-sign:hover {
+	color: #FFB27A;
+	cursor: pointer;
+}
+
+.glyphicon-info-sign {
+	color: #5F6065;
+	font-size: 20px;
+}
+
+#cant-see:hover {
+	color: #FFB27A;
+	font-weight: bold;
+	font-style: none;
+	cursor: pointer;
+}
+
+#cant-see {
+	float: right;
+	font-family: "Ubuntu";
+}
+
 #blank-space2 {
-	height: 1000px;
+	height: 500px;
+}
+
+#results {
+	list-style: none;
+	padding-top: 160px;
+	background: url(../images/heart.png) no-repeat center;
+	height: 575px;	
+}
+
+#printedResults {
+	margin-top: 20px;
+}
+
+.panel {
+	font-family: "Ubuntu";
+	color: #5F6065;
 }
 
 
@@ -226,14 +275,16 @@ ul.pager li a {
 	width:200px;
 	padding:5px;
 	height:235px;
-	outline: 2px solid black;
+	outline: 2px solid #5F6065;
 	margin:10px;
-	background-color: white;
+	background-color: #FDFDFD;
 
 }
 
 #adoptees{
-	background: url("../images/blu_stripes.png");
+	background: linear-gradient(rgba(100, 96, 102, 0.35), rgba(95, 96, 101, 0.35)),
+               rgba(0,0,0,0.75) url('../images/blu_stripes.png');
+/*	background: url("../images/blu_stripes.png");*/
 }
 
 .adoptee-image {

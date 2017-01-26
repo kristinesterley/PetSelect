@@ -47,7 +47,7 @@ if(localStorage["zipcode"]){
 //Scroll to quiz!
 $("#start").click(function() {
     $('html,body').animate({
-        scrollTop: $("#quiz").offset().top},
+        scrollTop: $("#quiz-row").offset().top},
         'slow');
 });
 
@@ -84,8 +84,8 @@ var counter = 0
         $(".next").hide();
         console.log("hi");
         $("#quiz").css({
-            "background": "white",
-            "border-color": "white"})
+            "background": "transparent",
+            "border": "none"})
 
     }
 
@@ -98,7 +98,7 @@ var counter = 0
         if(counter < 13) {
             $(".next").show();
             $("#quiz").css({
-            "background-image": "url('assets/images/blu_stripes.png')",
+            "background": 'rgba(253, 253, 253, .85)',
             "border": "2px solid #FF8F66"})
         }
         if ($(".divs div:visible").prev().length != 0){
@@ -239,7 +239,7 @@ $("#show-match").on("click", function() {
         'data-target': 'n/a'
 
       });
-      
+
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
       // get matches for pets based on users quiz answers      

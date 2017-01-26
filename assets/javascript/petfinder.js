@@ -59,7 +59,7 @@ function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adopt
                             '<img class="adoptee-image img-thumbnail" src='+ pfImage + ' alt='+pfName+'>'+
                             '<div class="adoptee-name">Name: '+pfName+'</div>'+
                             '<div class="adoptee-gender">Gender: '+pfGender+'</div>'+
-                            '<button class="btn btn-primary green lighten-1 btn-petfinder" data-id='+pfId+'>See More</button>'+
+                            '<button class="btn btn-primary deep-orange lighten-2 btn-petfinder" data-id='+pfId+'>See More</button>'+
                         '</div>'+ 
                     '</div>';
             return newDiv;
