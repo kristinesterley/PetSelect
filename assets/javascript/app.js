@@ -58,8 +58,10 @@ $(".divs > div").each(function(e) {
             $(this).hide();
     });
 
+//counter for quiz features
 var counter = 0
-
+    
+    //Click through quiz 
     $(".next").click(function(){
         counter ++
         if ($(".divs div:visible").next().length != 0){
@@ -67,14 +69,24 @@ var counter = 0
             $("ul.pager li:first-child a").css('color', '#222')
             console.log("divs visible " + $(".divs div:visible").next().length);
             console.log("divs: " + $(".divs").length);
+            console.log("next:" + counter);
 
 
 
         };
 
+        //Must add one to counter upon next click if user scrolls all the way back to the first question.  
+        if (counter === 0) {
+            counter ++
+        }
+        //When quiz is over, hide the next button.
         if (counter === 13) {
         $(".next").hide();
         console.log("hi");
+        $("#quiz").css({
+            "background": "white",
+            "border-color": "white"})
+
     }
 
         return false;
@@ -85,6 +97,9 @@ var counter = 0
         counter --
         if(counter < 13) {
             $(".next").show();
+            $("#quiz").css({
+            "background-image": "url('assets/images/blu_stripes.png')",
+            "border": "2px solid #FF8F66"})
         }
         if ($(".divs div:visible").prev().length != 0){
             console.log("There are still elements");
@@ -93,19 +108,19 @@ var counter = 0
                 .show()
                 .next()
                 .hide();
-            
+            console.log(counter);
         }
         else {
             //Can't go previous first div
-            console.log("Can't go previous first div");
+            //pager previous arrows turn red
             $("ul.pager li:first-child a").css('color', 'red')
-            //$(".divs div:visible").hide();
-            //$(".divs div:last").show();
         }
+        //prevent form from submitting
         return false;
 });
 
-//store *checked* values inside of the quiz response object (to be compared to animal objects)
+
+//Object for values from quiz responses 
 var quizResponse = {
   affection: 0,
   affordable: 0,
@@ -122,7 +137,7 @@ var quizResponse = {
   sounds: 0
 }
 
-
+//store *checked* values inside of the quiz response object (to be compared to animal objects)
 var storeResponse = function() {
   $('#Q1 input').on('change', function() {
     //take input from selected radio button and store in variable to be converted into an integer.
@@ -190,9 +205,8 @@ var storeResponse = function() {
    sounds = $('input[name=sounds]:checked', '#Q13').val(); 
    quizResponse.sounds = parseInt(sounds);
   });
-//add responses to local storage
 
-console.log(quizResponse);
+
 
 };
 
@@ -205,12 +219,13 @@ function checkZip(value) {
 
 //When click show-match button, get results (so long as zipcode is validated.
 $("#show-match").on("click", function() {
-  //storeResponse();
 
-
-    zipcode = $("#zipcode").val().trim();
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
+
+    //put users zipcode in a variable
+    zipcode = $("#zipcode").val().trim();
+
     //Validate zipcode
     if (checkZip(zipcode) === true) {
 
@@ -224,6 +239,7 @@ $("#show-match").on("click", function() {
         'data-target': 'n/a'
 
       });
+      
       //store zip code in local storage
       localStorage.setItem("zipcode", zipcode);
       // get matches for pets based on users quiz answers      

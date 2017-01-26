@@ -29,6 +29,11 @@
 	word-spacing: 0.1em;
 }
 
+.btn:hover {
+
+}
+
+
 /*using these conditions to center things*/
 .container {
 	margin: 0px;
@@ -50,8 +55,9 @@ header {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.2em;
-	border: 3px solid green;
+	border: 3px solid #FF8F66;
 	padding: 0px;
+	border-radius: 25px;
 }
 
 #blank-space {
@@ -59,9 +65,13 @@ header {
 }
 
 #quiz {
-	height: 500px;
+	height: 300px;
 	width: 770px;
 	margin: 0 auto;
+	border-radius: 25px;
+	background: url("../images/blu_stripes.png");
+	border: 2px solid #FF8F66
+
 }
 
 .Question {
@@ -109,9 +119,6 @@ ul.pager li a {
 	color: #000;
 }
 
-.btn {
-	background-color: white;
-}
 
 .glyphicon-question-sign:hover {
 	color: green;
@@ -147,7 +154,7 @@ ul.pager li a {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.1em;
-	border: 3px solid green;
+	border: 3px solid #FF8F66;
 	padding: 0px;
 	height: 175px;
 	width: 400px;
