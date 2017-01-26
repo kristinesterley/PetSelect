@@ -1,4 +1,6 @@
 
+
+
 //Check if stuff is in local storage, get it if it is
 if(localStorage["quizResponse"]){
   quizResponse = JSON.parse(localStorage["quizResponse"]);

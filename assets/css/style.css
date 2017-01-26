@@ -103,6 +103,25 @@ ul.pager li a {
 	border-color: #222;
 }
 
+.help {
+	font-size: 25px;
+	font-family: "Ubuntu";
+	color: #000;
+}
+
+.btn {
+	background-color: white;
+}
+
+.glyphicon-question-sign:hover {
+	color: green;
+	cursor: pointer;
+}
+
+.glyphicon-question-sign {
+	color: #222;
+	font-size: 20px;
+}
 
 #results {
 	list-style: none;	
