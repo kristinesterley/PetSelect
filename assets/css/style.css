@@ -6,6 +6,15 @@
 	text-align: center;
 }
 
+#opening-row {
+	background: linear-gradient(rgba(255, 178, 122, 0.85), rgba(95, 96, 101, 0.85)),
+               rgba(0,0,0,0.15) url('https://upload.wikimedia.org/wikipedia/commons/2/25/Strongheart-Trimble-American-Boy.jpg') no-repeat center;
+    background-size: cover;
+/*	background-color: #FFB27A;*/
+	padding: 0px;
+	margin: 0px;
+}
+
 .center {
 	margin: auto;
 	width: 50%;
@@ -18,18 +27,61 @@
 	margin: 0 auto;
 	height: 450px;
 	line-height: 0.9em;
+	color: #FFF;
 }
 
 .h1 {
 	margin: 0px;
 	margin-bottom: 10px;
-	font-size: 35px;
+	font-size: 38px;
 	font-family: "Raleway";
-	font-weight: bolder;
 	word-spacing: 0.1em;
+	color: #FFF;
+	animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#start-div {
+	height: 300px;
 }
 
 .btn:hover {
+	background: #FFB27A;
 
 }
 
@@ -51,11 +103,11 @@ header {
 	height: 100px;
 	width: 300px;
 	font-size: 65px;
-	background-color: #222;
+	background-color: #5f6065;
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.2em;
-	border: 3px solid #FF8F66;
+	border: 3px solid #FFB27A;
 	padding: 0px;
 	border-radius: 25px;
 }
@@ -70,7 +122,7 @@ header {
 	margin: 0 auto;
 	border-radius: 25px;
 	background: url("../images/blu_stripes.png");
-	border: 2px solid #FF8F66
+	border: 1px solid #333
 
 }
 
@@ -95,9 +147,10 @@ label {
 	font-size: 28px;
 	word-spacing: 0.1em;
 	font-family: "Raleway";
-	background-color: #333;
+	background-color: #FFB27A;
 	color: white;
 	margin-bottom: 0px;
+	border-radius: 25px;
 }
 
 p {
@@ -121,12 +174,12 @@ ul.pager li a {
 
 
 .glyphicon-question-sign:hover {
-	color: green;
+	color: #FFB27A;
 	cursor: pointer;
 }
 
 .glyphicon-question-sign {
-	color: #222;
+	color: #646D7E;
 	font-size: 20px;
 }
 
@@ -154,7 +207,7 @@ ul.pager li a {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.1em;
-	border: 3px solid #FF8F66;
+	border: 3px solid #FFB27A;
 	padding: 0px;
 	height: 175px;
 	width: 400px;

@@ -28,26 +28,27 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="row" id="opening-row">
+    <div class = "col-md-12">
         <div class="center">
         <header>         
           <div id="questM">?</div><!--Replace with ? image-->
-          <p class="h1" id="firstTitle">WHICH PET IS RIGHT FOR YOU?</p>
-          <!--HIDE SECOND fade in between texts (use jquery to replace above text)-->
-         <!--  <p class="h1" id="secondTitle">Click START to find out</p> -->
-        </header>
-        </div>
+            <p class="h1" id="firstTitle">WHICH PET IS RIGHT FOR YOU?</p>
+            <!--HIDE SECOND fade in between texts (use jquery to replace above text)-->
+           <!--  <p class="h1" id="secondTitle">Click START to find out</p> -->
+          </header>
+          </div>
 
-        <div class="row">
-            <div class = "col-md-12">
 
-              <div class="center">
-              <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
-              </div>
+          <div class="center" id="start-div">
+            <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
+          </div>
 
-            </div>
+      </div>
 
-        </div><!--ROW 1 end-->
+  </div><!--ROW 1 end-->
+
+<div class="container-fluid">
 
       <div class="row"><!--ROW 2 begin-->
         <div class ="col-md-1" id="blank-space">
@@ -235,7 +236,7 @@
     <div class="container-fluid">
       <ul id="results"></ul> <!-- div for quiz results buttons -->
     </div>
-    <div class="container-fluid"> 
+    <div class="container-fluid" id="printedResults"> 
       <div class="row">
         <div class="col-md-7"><!-- div for YouTube video player -->
 
