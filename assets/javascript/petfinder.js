@@ -1,6 +1,6 @@
 
 
-function createPanelDiv(name) {
+function createAdopteeContainerDiv(name) {
     //first get weather information for the panel header
 
     
@@ -8,7 +8,10 @@ function createPanelDiv(name) {
 
     console.log(queryURL);
 
-    $.ajax({ url: queryURL, method: "GET" }).done(function(response){
+    $.ajax({ 
+        url: queryURL, 
+        method: "GET",
+        success: function(response){
 
         var weatherMessage = "Everyday is a great day to adopt a pet!";
         var weatherIcon = "./assets/images/sun.png";
@@ -44,6 +47,12 @@ function createPanelDiv(name) {
             '</div>'+
             '</div>';
             $("#petPix").append(newDiv); 
+
+        }, // end success
+        error : function(request,error)
+        {
+            console.log("Request: "+JSON.stringify(request));
+        } // end error
 
     });
 
@@ -203,7 +212,9 @@ function findPet(obj){
             var id="";
 
             var petfinder = data.petfinder;
-            if (petfinder.pets){
+            console.log("return with bad zip");
+            console.log(petfinder);
+            if (petfinder.pets){ 
 
                 for (var i=0;i<petfinder.pets.pet.length;i++){
                     var thisPet = petfinder.pets.pet[i];
@@ -249,8 +260,10 @@ function findPet(obj){
                 }//end for
             } //end if
             else {
-
-                $('#petfinderInfo').append("None found.");
+                console.log("in the else statement so petfinder.pets is false");
+                
+                setTimeout(writeInPetFinderInfo, 1000*1);
+                
             }
         },
         error : function(request,error)
@@ -260,6 +273,11 @@ function findPet(obj){
     });//end ajax
 }//end findPet
 
+
+function writeInPetFinderInfo() {
+    var noneDiv = '<div>None found.</div>';
+    $('#petfinderInfo').append(noneDiv);
+}
 
 
  $(document).on('click', '.btn-petfinder', function() { 

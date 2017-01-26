@@ -1,5 +1,5 @@
 
-
+var WAIT = 2; //wait two seconds
 var buttonWidth = 500;
 var matches=[];
 var searchObject = {
@@ -50,7 +50,7 @@ function getResults(quizObject){
 	console.log(quizObject);
 	compare(quizObject, snapshot.val());
 	for(i=0;i<matches.length;i++){
-		var newButton = '<li><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
+		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
 				' data-searchTerm='+ matches[i].searchTerm + 
@@ -61,26 +61,34 @@ function getResults(quizObject){
 		$("#results").append(newButton);
 
 	} //end for
-	$("#results").append("<br><br>");
+	
 	}); //end query.once
  }//end getResults
 
 
  $(document).on('click', '.btn-select', function() {
 
- 	var animalVideo = $(this).attr('data-youTubeId')
 
- 	if (player){
-		player.loadVideoById(animalVideo);			
-	}
-	else {	
- 		playVideo(animalVideo);
- 	}
-
+		// make the shelter panel and populate with local area shelter info
  	$("#shelter-panel").remove();
  	createShelterDiv();
  	getShelters(zipcode);
 
+// load the youtube player with the video for chosen animal 	
+
+ 	var animalVideo = $(this).attr('data-youTubeId')
+
+ 	if (player){
+ 		console.log("player exists");
+ 		// $("#video-player").show();
+		player.loadVideoById(animalVideo);			
+	}
+	else {	
+		console.log("player not true create a new instance");
+ 		playVideo(animalVideo);
+ 	}
+
+ 	// get and display pets available for adoption
 
 
  	var tempType = $(this).attr('data-searchType');
@@ -109,10 +117,12 @@ function getResults(quizObject){
 		searchObject.size = "";
 
 	}
-		$("#petPix").empty();
-	    createPanelDiv(tempName);
+		$("#adoptees").remove();
+	    createAdopteeContainerDiv(tempName);
 		searchObject.zipCode = zipcode;
-	    findPet(searchObject);
+		setTimeout(findPet(searchObject),1000*WAIT);
+
+	    
  });          
 
 

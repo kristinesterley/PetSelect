@@ -140,7 +140,9 @@ ul.pager li a {
 }
 
 
-
+#player {
+	border: solid #66bb6a;
+}
 .adoptee-info{
 	clear:both;
 	font-family: "Ubuntu";
@@ -190,9 +192,7 @@ img {
 	width:25px;
 	height:25px;
 }
-/*#shelters {
-	float:right;
-}*/
+
 
 #shelter-list {
 	overflow:scroll;
