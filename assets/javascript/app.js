@@ -1,5 +1,25 @@
+//check for navigation time API support
+if (window.performance) {
+  console.info("window.performance work's fine on this browser");
+}
 
+if (localStorage.getItem("retaking") == "true") {
 
+          $('html,body').animate({
+        scrollTop: $("#quiz-row").offset().top},
+        0);
+          localStorage.removeItem("retaking");
+}
+
+else if(performance.navigation.type == 1) {
+  console.info( "This page is reloaded" );
+      $('html,body').animate({
+        scrollTop: $("#opening-row").offset().top},
+        'slow');
+
+}  else {
+  console.info( "This page is not reloaded");
+}
 
 //Check if stuff is in local storage, get it if it is
 if(localStorage["quizResponse"]){
@@ -42,6 +62,9 @@ if(localStorage["zipcode"]){
   console.log(zipcode);
   $("#zipcode").val(zipcode);
 }
+
+//hide retake quiz button
+$("#retake").hide();
 
 
 //Scroll to quiz!
@@ -204,6 +227,11 @@ function checkZip(value) {
 //When click show-match button, get results (so long as zipcode is validated.
 $("#show-match").on("click", function() {
 
+    //show retake button and remove ability to change answers 
+    $(".previous").hide();
+    $("#show-match").hide();
+    $("#retake").show();
+
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
 
@@ -251,4 +279,15 @@ $("#show-match").on("click", function() {
 
     };
 });
+
+//if want to restart quiz
+function scrollToElement(ele) {
+    $(window).scrollTop(ele.offset().top).scrollLeft(ele.offset().left);
+}
+
+$("#retake").on("click", function() {
+    localStorage.setItem("retaking", 'true');
+    location.reload(true);
+
+})
 
