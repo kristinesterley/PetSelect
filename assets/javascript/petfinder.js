@@ -212,8 +212,7 @@ function findPet(obj){
             var id="";
 
             var petfinder = data.petfinder;
-            console.log("return with bad zip");
-            console.log(petfinder);
+
             if (petfinder.pets){ 
 
                 for (var i=0;i<petfinder.pets.pet.length;i++){
@@ -260,7 +259,7 @@ function findPet(obj){
                 }//end for
             } //end if
             else {
-                console.log("in the else statement so petfinder.pets is false");
+                //need a pause here to make sure that the dynamically created div is in place before writing to it
                 
                 setTimeout(writeInPetFinderInfo, 1000*1);
                 

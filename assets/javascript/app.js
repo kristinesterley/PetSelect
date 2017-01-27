@@ -213,16 +213,17 @@ $("#show-match").on("click", function() {
       $("#adoptees").remove();
       $("#shelter-panel").remove();
       $(".li-select").remove();
-      if (player){
-        $("#video-player").hide();
+      // if (player){
+        // $("#video-player").hide();
         // console.log("about to destroy");
         // player.destroy();
         // console.log ("player " + player);
-      }
+      // }
       // $('#player').get(0).stopVideo();
-      // $("#player").remove();
-      // var newDiv = '<div id="player"></div>'
-      // $(".media-left").append(newDiv);
+      $("#player").remove();
+      player=null; // getting rid of previous player object
+      var newDiv = '<div id="player"></div>'
+      $(".media-left").append(newDiv);
 
       // get matches for pets based on users quiz answers      
       getResults(quizResponse);

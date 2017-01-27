@@ -69,7 +69,7 @@ function getResults(quizObject){
  $(document).on('click', '.btn-select', function() {
 
 
-		// make the shelter panel and populate with local area shelter info
+// make the shelter panel and populate with local area shelter info
  	$("#shelter-panel").remove();
  	createShelterDiv();
  	getShelters(zipcode);
@@ -80,8 +80,12 @@ function getResults(quizObject){
 
  	if (player){
  		console.log("player exists");
- 		// $("#video-player").show();
-		player.loadVideoById(animalVideo);			
+ 		videoId = animalVideo;
+ 		console.log(animalVideo);
+
+
+		// onYouTubeIframeAPIReady();	
+		player.loadVideoById(animalVideo);		
 	}
 	else {	
 		console.log("player not true create a new instance");
