@@ -210,24 +210,17 @@ $("#show-match").on("click", function() {
       localStorage.setItem("zipcode", zipcode);
 
 
-      $("#adoptees").remove();
-      $("#shelter-panel").remove();
-      $(".li-select").remove();
-      // if (player){
-        // $("#video-player").hide();
-        // console.log("about to destroy");
-        // player.destroy();
-        // console.log ("player " + player);
-      // }
-      // $('#player').get(0).stopVideo();
-      $("#player").remove();
-      player=null; // getting rid of previous player object
-      var newDiv = '<div id="player"></div>'
-      $(".media-left").append(newDiv);
+      // $("#adoptees").remove();
+      // $("#shelter-panel").remove();
+      // $(".li-select").remove();
+      // $("#player").remove();
+      // player=null;
+      // var newDiv = '<div id="player"></div>'
+      // $(".media-left").append(newDiv);
 
       // get matches for pets based on users quiz answers      
       getResults(quizResponse);
-      // clear out previous results if any
+ 
 
 
     }

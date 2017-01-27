@@ -1,4 +1,5 @@
 
+var MAXRESULTS=5;		
 var WAIT = 2; //wait two seconds
 var buttonWidth = 500;
 var matches=[];
@@ -49,7 +50,7 @@ function getResults(quizObject){
 	console.log('quizObject');
 	console.log(quizObject);
 	compare(quizObject, snapshot.val());
-	for(i=0;i<matches.length;i++){
+	for(i=0;i<MAXRESULTS;i++){
 		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
@@ -57,7 +58,7 @@ function getResults(quizObject){
 				' data-searchSize=' + matches[i].searchSize +
 				'> <img src="./assets/images/'+matches[i].icon+'" id="icon">'+ ' '+
 				matches[i].animal+ ' ' +matches[i].match+ '%' +'</button></li>';  	
-		
+		console.log(newButton);
 		$("#results").append(newButton);
 
 	} //end for
@@ -79,16 +80,9 @@ function getResults(quizObject){
  	var animalVideo = $(this).attr('data-youTubeId')
 
  	if (player){
- 		console.log("player exists");
- 		videoId = animalVideo;
- 		console.log(animalVideo);
-
-
-		// onYouTubeIframeAPIReady();	
 		player.loadVideoById(animalVideo);		
 	}
-	else {	
-		console.log("player not true create a new instance");
+	else {			
  		playVideo(animalVideo);
  	}
 
@@ -98,12 +92,15 @@ function getResults(quizObject){
  	var tempType = $(this).attr('data-searchType');
  	var tempTerm = $(this).attr('data-searchTerm');
  	var tempSize = $(this).attr('data-searchSize');
+ 	console.log("temp stuff");
+ 	console.log(tempType + tempTerm + tempSize);
  	
  	var tempName = $(this).text();
  	tempName = tempName.trim();
  	tempName = tempName.slice(0,-3);
  	tempName = tempName.trim(); 
  	tempName = tempName + "s";
+
 
  	if (tempType === "A"){
  		searchObject.animal = tempTerm;
@@ -121,6 +118,9 @@ function getResults(quizObject){
 		searchObject.size = "";
 
 	}
+		console.log("searchObject in results.js");
+		console.log(searchObject);
+
 		$("#adoptees").remove();
 	    createAdopteeContainerDiv(tempName);
 		searchObject.zipCode = zipcode;

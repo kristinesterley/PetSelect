@@ -175,7 +175,8 @@ function getShelters(zCode) {
 function buildPetUrl(obj){
 
     var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
-
+    console.log("buildPetUrl");
+    console.log(obj);
     var str = "";
     if (obj.animal) {
         str = obj.animal.replace(/_/gi,"%20");
