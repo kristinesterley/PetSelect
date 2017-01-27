@@ -154,6 +154,23 @@ label {
 	font-weight: normal;
 }
 
+form p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #FFB27A;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #FFB27A;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #FFB27A;
+}
+
 
 .h2 {
 	font-size: 28px;
