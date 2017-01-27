@@ -81,7 +81,7 @@
 }
 
 .btn:hover {
-	background: #FFB27A;
+	background: #FB8950;
 
 }
 
@@ -154,21 +154,22 @@ label {
 	font-weight: normal;
 }
 
+/*over-riding materialize to center p tags (in this case the bootstrap headers)*/
 form p {
     margin-bottom: 10px;
     text-align: center;
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-    background-color: #FFB27A;
+    background-color: #FB8950;
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-    background-color: #FFB27A;
+    background-color: #FB8950;
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
-    border: 2px solid #FFB27A;
+    border: 2px solid #FB8950;
 }
 
 
@@ -176,7 +177,7 @@ form p {
 	font-size: 28px;
 	word-spacing: 0.1em;
 	font-family: "Raleway";
-	background-color: #FFB27A;
+	background-color: #FB8950;
 	color: white;
 	margin-bottom: 0px;
 	border-radius: 25px;
