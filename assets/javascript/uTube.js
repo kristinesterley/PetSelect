@@ -1,3 +1,4 @@
+
   var videoId = "";
   
   function playVideo(vid) {
@@ -34,3 +35,4 @@
       function stopVideo() {
         player.stopVideo();
       }
+
