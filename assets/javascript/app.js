@@ -43,6 +43,9 @@ if(localStorage["zipcode"]){
   $("#zipcode").val(zipcode);
 }
 
+//hide retake quiz button
+$("#retake").hide();
+
 
 //Scroll to quiz!
 $("#start").click(function() {
@@ -119,23 +122,6 @@ var counter = 0
         return false;
 });
 
-
-//Object for values from quiz responses 
-var quizResponse = {
-  affection: 0,
-  affordable: 0,
-  childFriendly: 0,
-  cleanliness: 0,
-  coat: 0, 
-  fitness: 0,
-  intelligence: 0,
-  lifeSpan: 0,
-  noise: 0,
-  outdoor: 0,
-  physicalSpace: 0,
-  size: 0,
-  sounds: 0
-}
 
 //store *checked* values inside of the quiz response object (to be compared to animal objects)
 var storeResponse = function() {
@@ -220,6 +206,9 @@ function checkZip(value) {
 //When click show-match button, get results (so long as zipcode is validated.
 $("#show-match").on("click", function() {
 
+    $("#show-match").hide();
+    $("#retake").show();
+
     //store results to local storage
     localStorage.setItem("quizResponse", JSON.stringify(quizResponse));
 
@@ -257,4 +246,15 @@ $("#show-match").on("click", function() {
 
     };
 });
+
+//if want to restart quiz
+function scrollToElement(ele) {
+    $(window).scrollTop(ele.offset().top).scrollLeft(ele.offset().left);
+}
+
+$("#retake").on("click", function() {
+    location.reload();
+    scrollToElement("#quiz-row")
+
+})
 

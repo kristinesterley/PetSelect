@@ -207,7 +207,7 @@ ul.pager li a {
 	color: #FDFDFD;
 }
 
-#show-match {
+#show-match, #retake {
 	font-size: 45px;
 /*	position: relative;
 	top: 50%;
