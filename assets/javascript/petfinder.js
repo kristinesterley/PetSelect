@@ -4,7 +4,7 @@ function createAdopteeContainerDiv(name) {
     //first get weather information for the panel header
 
     
-    var queryURL = "http://api.wunderground.com/api/c68ecd67f5bf0bc5/conditions/q/" + zipcode + ".json";
+    var queryURL = "https://api.wunderground.com/api/c68ecd67f5bf0bc5/conditions/q/" + zipcode + ".json";
 
     console.log(queryURL);
 
@@ -112,7 +112,7 @@ function displayShelter(name,city,state,email,phone){
 
 function getShelters(zCode) {
 
-    var urlShelter = 'http://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=20' + '&location=' + zCode;
+    var urlShelter = 'https://api.petfinder.com/shelter.find?key=e1bf9c7e6dcb9f122154bef369c419db&format=json&count=20' + '&location=' + zCode;
     var shelterName = "";
     var shelterCity = "";
     var shelterState = "";
@@ -182,7 +182,7 @@ function getShelters(zCode) {
 
 function buildPetUrl(obj){
 
-    var urlBuild = 'http://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
+    var urlBuild = 'https://api.petfinder.com/pet.find?key=e1bf9c7e6dcb9f122154bef369c419db&output=full&format=json&count=100'
     console.log("buildPetUrl");
     console.log(obj);
     var str = "";
