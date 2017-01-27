@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="assets/images/favicon.ico" />
   <title>PetSelect</title>
 
+
   <!-- Link to the jQuery Library -->
   <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
@@ -26,26 +27,27 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="row" id="opening-row">
+    <div class = "col-md-12">
         <div class="center">
         <header>         
           <div id="questM">?</div><!--Replace with ? image-->
-          <p class="h1" id="firstTitle">WHICH PET IS RIGHT FOR YOU?</p>
-          <!--HIDE SECOND fade in between texts (use jquery to replace above text)-->
-         <!--  <p class="h1" id="secondTitle">Click START to find out</p> -->
-        </header>
-        </div>
+            <p class="h1" id="firstTitle">WHICH PET IS RIGHT FOR YOU?</p>
+            <!--HIDE SECOND fade in between texts (use jquery to replace above text)-->
+           <!--  <p class="h1" id="secondTitle">Click START to find out</p> -->
+          </header>
+          </div>
 
-        <div class="row">
-            <div class = "col-md-12">
 
-              <div class="center">
-              <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
-              </div>
+          <div class="center" id="start-div">
+            <div><button type="button" class="btn btn-default btn-lg" id="start">START</button></div>
+          </div>
 
-            </div>
+      </div>
 
-        </div><!--ROW 1 end-->
+  </div><!--ROW 1 end-->
+
+<div class="container-fluid">
 
       <div class="row"><!--ROW 2 begin-->
         <div class ="col-md-1" id="blank-space">
@@ -54,7 +56,9 @@
 
       </div><!--ROW 2 end-->
 
-      <div class="row"><!--ROW 3 begin-->
+      <div class="row" id="quiz-row"><!--ROW 3 begin-->
+
+        <div id="space-quiz"></div>
 
           <div class="container-fluid" id="quiz">
             <div class="divs">
@@ -149,7 +153,7 @@
                <input type="radio" name="lifeSpan" value="2" id="q10_3"><label for="q10_3">My commitement efforts get exhausted by 15 years or so.</label><br>
                <input type="radio" name="lifeSpan" value="1" id="q10_4"><label for="q10_4">I don't even want to live that long.</label>
               </form>
-            </div><!--end cls10--> 
+            </div><!--end cls10-->   
             <div class="cls11">
               <form id = "Q11" class="Question" action="">
                 <p class="h2">&nbsp;<br>DO YOU HAVE KIDS?<br>&nbsp;</p><br/>
@@ -157,7 +161,6 @@
                <input type="radio" name="child-friendly" value="2" id="q11_2"><label for="q11_2">Yes, but they're afraid of most animals.</label><br>
                <input type="radio" name="child-friendly" value="3" id="q11_3"><label for="q11_3">Yes, they're good with animals.</label><br>
                <input type="radio" name="child-friendly" value="4" id="q11_4"><label for="q11_4">No.</label>
-
               </form>
             </div><!--end cls11-->
             <div class="cls12">
@@ -182,7 +185,7 @@
              <form action="">
               <label id="enter-zip">ENTER ZIP CODE</label>
               <input type="number" name="zip" id="zipcode"><br>
-              <button type="button" id="show-match">SHOW ME MY MATCH!</button>
+              <button type="button" id="show-match">SHOW ME MY MATCHES!</button>
              </form>
              </div><!--end cls14-->
                 <ul class="pager">
@@ -190,6 +193,9 @@
                 <li class="next"><a href="#">&raquo;</a></li>
               </ul>
         </div><!--divs end-->
+
+        <!--Click this for help-->
+        <a onclick="Materialize.toast('Simply answer the questions by clicking on the option that best describes you. <br>  Use the arrows to toggle through the quiz.  <br> At the end you will need to enter a valid US zipcode to see your best pet matches.  <br> Have fun!', 1000 * 12)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
 
                <!--error modal-->
               <div class="modal fade" id="myModal" role="dialog">
@@ -199,7 +205,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">OOPS!</h4>
+                    <h4 class="modal-title">AWW NAH!</h4>
                   </div>
                   <div class="modal-body">
                     <p>Please enter a valid zip-code.</p>
@@ -227,14 +233,21 @@
 
 
 
+
     <div class="container-fluid">
+   
       <ul id="results"></ul> <!-- div for quiz results buttons -->
+       <a onclick="Materialize.toast('Click on your match results to view more information on your match, including: <br> *An informative video <br> *Shelters local to you <br> *Matches up for adoption nearby', 1000 * 8)"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a><br>
+
+       <a id="cant-see" onclick="Materialize.toast('You must take the quiz and enter a valid US zipcode in order to view your matches.', 1000 * 5)">Can't see matches?</a>
+
     </div>
     <br>
     <br>
     <div class="container-fluid"> 
-      <div class="row">
+      <div class="row"  id="printedResults">
         <div class="col-md-7"><!-- div for YouTube video player -->
+
           <div class="media">
             <div class="media-left">
               <div id="player"></div>
@@ -254,15 +267,14 @@
     </div>  <!-- end container  -->
 
 
+
 <!-- Compiled and minified JavaScript for Materialize-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
  <!-- Links to our javacript files -->
   <script type="text/javascript" src="./assets/javascript/app.js"></script>
-
-   <script type="text/javascript" src="./assets/javascript/results.js"></script>
-    <script type="text/javascript" src="./assets/javascript/uTube.js"></script>
-
+  <script type="text/javascript" src="./assets/javascript/results.js"></script>
+  <script type="text/javascript" src="./assets/javascript/uTube.js"></script>
   <script type="text/javascript" src="./assets/javascript/petfinder.js"></script>
 
 </body>

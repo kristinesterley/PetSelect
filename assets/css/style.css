@@ -6,6 +6,15 @@
 	text-align: center;
 }
 
+#opening-row {
+	background: linear-gradient(rgba(255, 178, 122, 0.85), rgba(95, 96, 101, 0.85)),
+               rgba(0,0,0,0.15) url('https://upload.wikimedia.org/wikipedia/commons/2/25/Strongheart-Trimble-American-Boy.jpg') no-repeat center;
+    background-size: cover;
+/*	background-color: #FFB27A;*/
+	padding: 0px;
+	margin: 0px;
+}
+
 .center {
 	margin: auto;
 	width: 50%;
@@ -18,16 +27,64 @@
 	margin: 0 auto;
 	height: 450px;
 	line-height: 0.9em;
+	color: #FFF;
 }
 
 .h1 {
 	margin: 0px;
 	margin-bottom: 10px;
-	font-size: 35px;
+	font-size: 38px;
 	font-family: "Raleway";
-	font-weight: bolder;
 	word-spacing: 0.1em;
+	color: #FFF;
+	animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
 }
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#start-div {
+	height: 300px;
+}
+
+.btn:hover {
+	background: #FFB27A;
+
+}
+
 
 /*using these conditions to center things*/
 .container {
@@ -46,22 +103,38 @@ header {
 	height: 100px;
 	width: 300px;
 	font-size: 65px;
-	background-color: #222;
+	background-color: #5f6065;
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.2em;
-	border: 3px solid green;
+	border: 3px solid #FFB27A;
 	padding: 0px;
 }
 
 #blank-space {
-	height: 1000px;
+	height: 500px;
+}
+
+#quiz-row {
+	background: linear-gradient(rgba(95, 96, 101, 0.85), rgba(255, 178, 122, 0.85)),
+               rgba(0,0,0,0.15) url('../images/leash.jpg') no-repeat center;
+    background-size: cover;
+    height: 800px;
+}
+
+#space-quiz {
+	height: 200px;
 }
 
 #quiz {
-	height: 500px;
+	height: 300px;
 	width: 770px;
 	margin: 0 auto;
+	border-radius: 25px;
+	background: rgba(253, 253, 253, .85);
+	border: 1px solid #333
+
+
 }
 
 .Question {
@@ -73,22 +146,25 @@ header {
 }
 
 label {
-	font-size: 22px;
+	font-size: 25px;
 	word-spacing: 0.1em;
 	padding: 5px;
 	font-family: "Ubuntu";
-	color: #222;
+	color: #5F5056;
 	font-weight: normal;
 }
+
 
 .h2 {
 	font-size: 28px;
 	word-spacing: 0.1em;
 	font-family: "Raleway";
-	background-color: #333;
+	background-color: #FFB27A;
 	color: white;
 	margin-bottom: 0px;
+	border-radius: 25px;
 }
+
 
 p {
 	font-size: 14px;
@@ -103,18 +179,32 @@ ul.pager li a {
 	border-color: #222;
 }
 
-
-#results {
-	list-style: none;	
-}
-
-.panel {
+.help {
+	font-size: 25px;
 	font-family: "Ubuntu";
+	color: #000;
 }
+
+
+.glyphicon-question-sign:hover {
+	color: #FFB27A;
+	cursor: pointer;
+}
+
+.glyphicon-question-sign {
+	color: #FAFAFA;
+	font-size: 20px;
+}
+
 
 #enter-zip  {
 	font-size: 18px;
 	letter-spacing: 0.2em;
+	color: #FDFDFD;
+}
+
+#zipcode {
+	color: #FDFDFD;
 }
 
 #show-match {
@@ -128,15 +218,53 @@ ul.pager li a {
 	color: white;
 	font-family: "Ubuntu";
 	letter-spacing: 0.1em;
-	border: 3px solid green;
+	border: 3px solid #FFB27A;
 	padding: 0px;
 	height: 175px;
 	width: 400px;
 	word-wrap: break-word
 }
 
+.glyphicon-info-sign:hover {
+	color: #FFB27A;
+	cursor: pointer;
+}
+
+.glyphicon-info-sign {
+	color: #5F6065;
+	font-size: 20px;
+}
+
+#cant-see:hover {
+	color: #FFB27A;
+	font-weight: bold;
+	font-style: none;
+	cursor: pointer;
+}
+
+#cant-see {
+	float: right;
+	font-family: "Ubuntu";
+}
+
 #blank-space2 {
-	height: 1000px;
+	height: 500px;
+}
+
+#results {
+	list-style: none;
+	padding-top: 160px;
+	background: url(../images/heart.png) no-repeat center;
+	height: 575px;	
+}
+
+#printedResults {
+	margin-top: 20px;
+}
+
+.panel {
+	font-family: "Ubuntu";
+	color: #5F6065;
 }
 
 
@@ -147,14 +275,16 @@ ul.pager li a {
 	width:200px;
 	padding:5px;
 	height:235px;
-	outline: 2px solid black;
+	outline: 2px solid #5F6065;
 	margin:10px;
-	background-color: white;
+	background-color: #FDFDFD;
 
 }
 
 #adoptees{
-	background: url("../images/blu_stripes.png");
+	background: linear-gradient(rgba(100, 96, 102, 0.35), rgba(95, 96, 101, 0.35)),
+               rgba(0,0,0,0.75) url('../images/blu_stripes.png');
+/*	background: url("../images/blu_stripes.png");*/
 }
 
 .adoptee-image {

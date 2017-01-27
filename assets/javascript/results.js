@@ -52,6 +52,7 @@ function getResults(quizObject){
 	compare(quizObject, snapshot.val());
 	for(i=0;i<MAXRESULTS;i++){
 		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
+
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
 				' data-searchTerm='+ matches[i].searchTerm + 
@@ -76,6 +77,11 @@ function getResults(quizObject){
  	getShelters(zipcode);
 
 // load the youtube player with the video for chosen animal 	
+
+ 	$('html,body').animate({
+    scrollTop: $("#printedResults").offset().top},
+    'slow');
+
 
  	var animalVideo = $(this).attr('data-youTubeId')
 
