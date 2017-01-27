@@ -51,7 +51,7 @@ function getResults(quizObject){
 	console.log(quizObject);
 	compare(quizObject, snapshot.val());
 	for(i=0;i<MAXRESULTS;i++){
-		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light green lighten-1 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
+		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light deep-orange lighten-2 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
