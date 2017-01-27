@@ -21,7 +21,7 @@ else if(performance.navigation.type == 1) {
   console.info( "This page is not reloaded");
 }
 
-//Check if stuff is in local storage, get it if it is
+//Check if quiz answers and zip code is in local storage, get it if it is
 if(localStorage["quizResponse"]){
   quizResponse = JSON.parse(localStorage["quizResponse"]);
   console.log(quizResponse);
@@ -256,25 +256,16 @@ $("#show-match").on("click", function() {
       localStorage.setItem("zipcode", zipcode);
 
 
-      // $("#adoptees").remove();
-      // $("#shelter-panel").remove();
-      // $(".li-select").remove();
-      // $("#player").remove();
-      // player=null;
-      // var newDiv = '<div id="player"></div>'
-      // $(".media-left").append(newDiv);
-
       // get matches for pets based on users quiz answers      
       getResults(quizResponse);
  
 
-
     }
     else {
-    console.log("not valid");
-    $("#show-match").attr({ 
-      'data-toggle': 'modal', 
-      'data-target': '#myModal' 
+      console.log("not valid");
+      $("#show-match").attr({ 
+        'data-toggle': 'modal', 
+        'data-target': '#myModal' 
       });
 
     };
