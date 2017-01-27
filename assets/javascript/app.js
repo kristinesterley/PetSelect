@@ -120,22 +120,6 @@ var counter = 0
 });
 
 
-//Object for values from quiz responses 
-var quizResponse = {
-  affection: 0,
-  affordable: 0,
-  childFriendly: 0,
-  cleanliness: 0,
-  coat: 0, 
-  fitness: 0,
-  intelligence: 0,
-  lifeSpan: 0,
-  noise: 0,
-  outdoor: 0,
-  physicalSpace: 0,
-  size: 0,
-  sounds: 0
-}
 
 //store *checked* values inside of the quiz response object (to be compared to animal objects)
 var storeResponse = function() {

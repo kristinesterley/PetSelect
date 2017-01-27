@@ -49,7 +49,7 @@ function getResults(quizObject){
 	console.log('quizObject');
 	console.log(quizObject);
 	compare(quizObject, snapshot.val());
-	for(i=0;i<matches.length;i++){
+	for(i=0;i<5;i++){
 		var newButton = '<li><button class="btn waves-effect waves-light deep-orange lighten-2 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
 				' data-youTubeId='+ 	matches[i].youTubeId+
 				' data-searchType=' + matches[i].searchType+
