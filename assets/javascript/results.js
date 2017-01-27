@@ -1,7 +1,7 @@
 
-var MAXRESULTS=5;		
+var MAXRESULTS=5;	//number of matches to display	
 var WAIT = 2; //wait two seconds
-var buttonWidth = 500;
+var buttonWidth = 500; //widest that the animal match buttons can be
 var matches=[];
 var searchObject = {
     animal: "",
@@ -22,7 +22,8 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 
-
+// compare takes the quiz responses stored in obj and compares to the attributes of each animal in the database
+// the results are sorted with the highest percentage match in the 0th position of the array containing the match results
 
 function compare(obj, animals){
 	matches = [];
@@ -40,15 +41,14 @@ function compare(obj, animals){
 		matches.sort(function(a,b){
 		return b.match-a.match;
 		});
-	console.log(matches);
+	
 }
 
+//getResults calls compare and then creates animal buttons associated with the highest scores
 
 function getResults(quizObject){
 	var query = database.ref().orderByKey();
 	query.once("value").then(function(snapshot){
-	console.log('quizObject');
-	console.log(quizObject);
 	compare(quizObject, snapshot.val());
 	for(i=0;i<MAXRESULTS;i++){
 		var newButton = '<li class="li-select"><button class="btn waves-effect waves-light deep-orange lighten-2 btn-select" style="width:' + Math.round((matches[i].match/100)*buttonWidth) + 'px"' +
@@ -67,6 +67,9 @@ function getResults(quizObject){
 	}); //end query.once
  }//end getResults
 
+//when a user clicks one of the buttons for an animal in the high score list, clear any divs from previous button clicks,
+// display an informational video about the selected animal, display a list of local animals, display pictures of animals of that type
+// that are available for adoption and provide a cute weather icon and message
 
  $(document).on('click', '.btn-select', function() {
 
@@ -98,14 +101,15 @@ function getResults(quizObject){
  	var tempType = $(this).attr('data-searchType');
  	var tempTerm = $(this).attr('data-searchTerm');
  	var tempSize = $(this).attr('data-searchSize');
- 	console.log("temp stuff");
- 	console.log(tempType + tempTerm + tempSize);
- 	
+
+ 	//pull aminal name off the button text and reformat it
  	var tempName = $(this).text();
  	tempName = tempName.trim();
  	tempName = tempName.slice(0,-3);
  	tempName = tempName.trim(); 
  	tempName = tempName + "s";
+
+ 	//format searchObject used for building the pet search url
 
 
  	if (tempType === "A"){
@@ -124,12 +128,14 @@ function getResults(quizObject){
 		searchObject.size = "";
 
 	}
-		console.log("searchObject in results.js");
-		console.log(searchObject);
+
 
 		$("#adoptees").remove();
 	    createAdopteeContainerDiv(tempName);
 		searchObject.zipCode = zipcode;
+
+		//set timeout here for a couple seconds in hope other processes are done before writing the pet results to the 
+		//dynamically create div
 		setTimeout(findPet(searchObject),1000*WAIT);
 
 	    

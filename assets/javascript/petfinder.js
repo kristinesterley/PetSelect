@@ -1,5 +1,5 @@
 
-
+// get current weather for zip code entered from the weatherunderground API and format the div and header for the pets to adopt panel
 function createAdopteeContainerDiv(name) {
     //first get weather information for the panel header
 
@@ -13,39 +13,39 @@ function createAdopteeContainerDiv(name) {
         method: "GET",
         success: function(response){
 
-        var weatherMessage = "Everyday is a great day to adopt a pet!";
-        var weatherIcon = "./assets/images/sun.png";
+            var weatherMessage = "Everyday is a great day to adopt a pet!";
+            var weatherIcon = "./assets/images/sun.png";
 
-        if (response.current_observation){
-            var weatherData = response.current_observation;
-            var weatherIcon = weatherData.icon_url;    
-            var city = weatherData.display_location.city;
-            var weather = weatherData.weather;
+            if (response.current_observation){
+                var weatherData = response.current_observation;
+                var weatherIcon = weatherData.icon_url;    
+                var city = weatherData.display_location.city;
+                var weather = weatherData.weather;
+                
+                if(weatherData.temp_f <= 32){
+                    weatherMessage = "It's "+ weatherData.temperature_string+ " in "+ city+"! Bring an animal in from the cold!";
+                }
+                else if(/Rain/.test(weather)){
+                    weatherMessage = "It's raining in " + city + "! Bring an animal in from the rain!";
+                }
+                else if(/Fog/.test(weather)){
+                    weatherMessage = "It's foggy in "+ city+"! An animal will brighten your day!";
+                }
+                else if(weather =="Overcast"){
+                    weatherMessage = "It's overcast in "+city+"! An animal will brighten your day!";
+                }
+                else{
+                    weatherMessage = "The weather in "+city+" is " +weather.toLowerCase()+"! It's a good day to adopt a pet!";
+                }
+
+            }//end if
             
-            if(weatherData.temp_f <= 32){
-                weatherMessage = "It's "+ weatherData.temperature_string+ " in "+ city+"! Bring an animal in from the cold!";
-            }
-            else if(/Rain/.test(weather)){
-                weatherMessage = "It's raining in " + city + "! Bring an animal in from the rain!";
-            }
-            else if(/Fog/.test(weather)){
-                weatherMessage = "It's foggy in "+ city+"! An animal will brighten your day!";
-            }
-            else if(weather =="Overcast"){
-                weatherMessage = "It's overcast in "+city+"! An animal will brighten your day!";
-            }
-            else{
-                weatherMessage = "The weather in "+city+" is " +weather.toLowerCase()+"! It's a good day to adopt a pet!";
-            }
-
-        }//end if
-        
-        var newDiv = '<div class = "panel panel-default" id="adoptees">' +
-            '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4>'+
-            '<img src="'+weatherIcon+'" id="icon">'+ weatherMessage + '</div>'+
-            '<div class = "panel-body" id="petfinderInfo">'+           
-            '</div>'+
-            '</div>';
+            var newDiv = '<div class = "panel panel-default" id="adoptees">' +
+                '<div class="panel-heading"><h4>'+name+' Near You Available for Adoption</h4>'+
+                '<img src="'+weatherIcon+'" id="icon">'+ weatherMessage + '</div>'+
+                '<div class = "panel-body" id="petfinderInfo">'+           
+                '</div>'+
+                '</div>';
             $("#petPix").append(newDiv); 
 
         }, // end success
@@ -60,6 +60,7 @@ function createAdopteeContainerDiv(name) {
 
 }
 
+// create a div for one adoptable pet and return the div to the calling function
 
 function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adoptee divs
 
@@ -74,6 +75,8 @@ function createAdopteeDiv(pfId, pfName, pfImage, pfGender) { //creates the adopt
             return newDiv;
 }//end create AdopteeDiv
 
+// create a div to hold shelter information and display it
+
 function createShelterDiv(){
            var newDiv =   '<div class="panel panel-default" id="shelter-panel">'+
                                 '<div class="panel-heading">'+
@@ -86,6 +89,8 @@ function createShelterDiv(){
             $("#shelters").append(newDiv);                
 
 }
+
+//create a div for one shelter and diplay
 
 function displayShelter(name,city,state,email,phone){
 
@@ -102,6 +107,8 @@ function displayShelter(name,city,state,email,phone){
 
     $("#shelter-list").append(newDiv);
 }
+
+// make a call to the PetFinder API to get shelters in the area of the given zip code
 
 function getShelters(zCode) {
 
@@ -171,6 +178,7 @@ function getShelters(zCode) {
     });//end ajax
 }//end getShelters
 
+// build the url that will be sent to the PetFinder API to get adoptable pet information
 
 function buildPetUrl(obj){
 
@@ -193,6 +201,9 @@ function buildPetUrl(obj){
     urlBuild = urlBuild +'&location='+obj.zipCode;
     return urlBuild;
 }//end buildPetUrl
+
+
+//makes ajax call to the PetFinder API to get pets of the requested type that are available for adoption
 
 function findPet(obj){
 
@@ -262,7 +273,7 @@ function findPet(obj){
             else {
                 //need a pause here to make sure that the dynamically created div is in place before writing to it
                 
-                setTimeout(writeInPetFinderInfo, 1000*1);
+                setTimeout(writeNoPetFinderInfo, 1000*1);
                 
             }
         },
@@ -274,12 +285,13 @@ function findPet(obj){
 }//end findPet
 
 
-function writeInPetFinderInfo() {
+//
+function writeNoPetFinderInfo() {
     var noneDiv = '<div>None found.</div>';
     $('#petfinderInfo').append(noneDiv);
 }
 
-
+//when user clicks button for a specific pet, open the PetFinder website on the page about that pet in another tab
  $(document).on('click', '.btn-petfinder', function() { 
 
     window.open('https://www.petfinder.com/petdetail/' + $(this).attr("data-id") ,'_blank' );
